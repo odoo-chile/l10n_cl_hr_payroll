@@ -199,8 +199,8 @@
             <field name="limit">True</field>
         </record>
 
-        <record id="hr_holidays_sobretiempo" model="hr.holidays.status">
-            <field name="name">Sobretiempo</field>
+        <record id="hr_holidays_vacaciones" model="hr.holidays.status">
+            <field name="name">Vacaciones</field>
             <field name="limit">True</field>
         </record>
 
