@@ -230,6 +230,115 @@ msgid "Identification No"
 msgstr "R.U.T"
 
 
+#. module: l10n_cl_hr_payroll
+#: field:hr.employee,couple_last_name:0
+msgid "Couple Last Name"
+msgstr "Apellido Cónyuge"
+
+
+#. module: l10n_cl_hr_payroll
+#: view:hr.employee:l10n_cl_hr_payroll.view_last_name_form
+msgid "Couple Last Name..."
+msgstr "Apellido Cónyuge..."
+
+#. module: l10n_cl_hr_payroll
+#: model:ir.model,name:l10n_cl_hr_payroll.model_hr_employee
+msgid "Employee"
+msgstr "Empleado"
+
+#. module: l10n_cl_hr_payroll
+#: view:hr.employee:l10n_cl_hr_payroll.view_last_name_form
+msgid "First Last Name..."
+msgstr "Primer Apellido..."
+
+#. module: l10n_cl_hr_payroll
+#: view:hr.employee:l10n_cl_hr_payroll.view_last_name_form
+msgid "First Name..."
+msgstr "Primer Nombre..."
+
+#. module: l10n_cl_hr_payroll
+#: field:hr.employee,full_first_name:0
+msgid "Full First Name"
+msgstr "Nombre Completo"
+
+#. module: l10n_cl_hr_payroll
+#: field:hr.employee,complete_name:0
+msgid "Full Name"
+msgstr "Nombre completo"
+
+#. module: l10n_cl_hr_payroll
+#: help:hr.employee,full_first_name:0
+msgid ""
+"Full firs name of employee, conformed by:             Name + Second Name"
+msgstr "Nombre completo del empleado, conformado por: Nombre + Segundo nombre"
+
+#. module: l10n_cl_hr_payroll
+#: field:hr.employee,full_last_name:0
+msgid "Full last Name"
+msgstr "Apellidos completos"
+
+#. module: l10n_cl_hr_payroll
+#: help:hr.employee,full_last_name:0
+msgid ""
+"Full last name of employee, conformed by:             Last name + Second "
+"last name"
+msgstr ""
+"Apellido completo del empleado, conformado por: Primer apellido + Segundo "
+"Apellido"
+
+#. module: l10n_cl_hr_payroll
+#: help:hr.employee,complete_name:0
+msgid ""
+"Full name of employee, conformed by: Last             name + Second last "
+"name + Name + Second Name"
+msgstr ""
+"Nombre y apellidos del empleado, conformado por: Apellido + Segundo apellido "
+"+ Nombre + Segundo nombre"
+
+#. module: l10n_cl_hr_payroll
+#: field:hr.employee,last_name:0
+msgid "Last Name"
+msgstr "Apellido"
+
+#. module: l10n_cl_hr_payroll
+#: help:hr.employee,last_name:0
+msgid "Last employee name"
+msgstr "Apellido empleado"
+
+#. module: l10n_cl_hr_payroll
+#: help:hr.employee,couple_last_name:0
+msgid "Last name of employee couple"
+msgstr "Apellidos del cónyuge del empleado"
+
+#. module: l10n_cl_hr_payroll
+#: field:hr.employee,second_last_name:0
+msgid "Second Last Name"
+msgstr "Segundo Apellido"
+
+#. module: l10n_cl_hr_payroll
+#: view:hr.employee:l10n_cl_hr_payroll.view_last_name_form
+msgid "Second Last Name..."
+msgstr "Segundo Apellido..."
+
+#. module: l10n_cl_hr_payroll
+#: field:hr.employee,second_name:0
+msgid "Second Name"
+msgstr "Segundo Nombre"
+
+#. module: l10n_cl_hr_payroll
+#: view:hr.employee:l10n_cl_hr_payroll.view_last_name_form
+msgid "Second Name..."
+msgstr "Segundo Nombre..."
+
+#. module: l10n_cl_hr_payroll
+#: help:hr.employee,second_last_name:0
+msgid "Second employee last name"
+msgstr "Segundo apellido del empleado"
+
+#. module: l10n_cl_hr_payroll
+#: help:hr.employee,second_name:0
+msgid "Second employee name"
+msgstr "Segundo nombre del empleado"
 
 
 #. module: hr_payroll
@@ -253,7 +362,7 @@ msgstr "Vacaciones 2016"
 #. module: hr_holidays
 #: model:hr.holidays.status,name:hr_holidays.holiday_status_unpaid
 msgid "Unpaid"
-msgstr "Falta"
+msgstr "No_Trabajado"
 
 
 #. module: hr_holidays
@@ -1035,3 +1144,14 @@ msgstr ""
 #: view:payment.advice.report:0
 msgid "Year of Payment Advices"
 msgstr ""
+
+
+
+#. module: hr_payroll
+#: model:ir.actions.act_window,name:hr_payroll.report_payslip
+#: model:ir.actions.report.xml,name:hr_payroll.report_payslip
+#: model:ir.ui.menu,name:hr_payroll.report_payslip
+msgid "May"
+msgstr "MAYO"
+
+

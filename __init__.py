@@ -24,5 +24,5 @@
 from . import hr_payroll
 from . import report
 from . import wizard
-
+from . import model
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

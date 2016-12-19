@@ -61,6 +61,9 @@ class hr_indicadores_previsionales(models.Model):
     contrato_plazo_fijo_empleador = fields.Float(
         'Contrato Plazo Fijo Empleador', 
         help="Contrato Plazo Fijo Empleador")
+    contrato_plazo_fijo_trabajador = fields.Float(
+        'Contrato Plazo Fijo Trabajador', 
+        help="Contrato Plazo Fijo Trabajador")    
     contrato_plazo_indefinido_empleador = fields.Float(
         'Contrato Plazo Indefinido Empleador', 
         help="Contrato Plazo Fijo")
@@ -153,12 +156,9 @@ class hr_payslip(models.Model):
         states={'draft': [('readonly', False)]}, readonly=True, required=True)
 
     def create(self, cr, uid, vals, context=None):
-        if context is None:
-            context = {}
-        else:
+        if 'indicadores_id' in context:
             vals.update({'indicadores_id': context.get('indicadores_id')})
-        return super(hr_payslip, self).create(
-            cr, uid, vals, context=context)
+        return super(hr_payslip, self).create(cr, uid, vals, context=context)
 
 
 class hr_payslip_run(models.Model):
@@ -219,10 +219,39 @@ class hr_contract(models.Model):
     pension = fields.Boolean('Pensionado')
     # seguro_complementario_id = fields.Many2one('hr.seguro.complementario',
     #    'Seguro Complementario')
-    seguro_complementario_cotizacion_uf = fields.Float(
-        'Cotización UF',  help="Cotización Pactada en UF")
+    seguro_complementario = fields.Float(
+        'Cotización UF',  help="Seguro Complementario")
     viatico_santiago = fields.Float(
         'Viático Santiago',  help="Viático Santiago")
+    # complete_name = fields.related('employee_id', 'complete_name', type='char', string='Name', store=True)
+    # city_id = fields.Many2one('res.country.state.city', "CityID") 
+    # city =  fields.Char(related='city_id.name', "City") 
+    complete_name = fields.Char(related='employee_id.complete_name')
+    last_name = fields.Char(related='employee_id.last_name')
+    gratificacion_legal = fields.Boolean('Gratificación Legal Anual')
+    aporte_voluntario_moneda= fields.Selection((('uf', 'UF'), ('clp', 'Pesos')), 'Tipo de Moneda', default="uf")
+    seguro_complementario_moneda= fields.Selection((('uf', 'UF'), ('clp', 'Pesos')), 'Tipo de Moneda', default="uf")
+
+
+
+
+    #Valor por defecto de variable definida
+    def _get_type(self, cr, uid, context=None):
+        type_ids = self.pool.get('hr.contract.type').search(cr, uid, [('name', '=', 'Plazo Indefinido')])
+        return type_ids and type_ids[0] or False
+
+    _defaults = {
+
+        'type_id': _get_type,
+    }
+
+
+
+
+
+
+
+
 
 
 
@@ -230,16 +259,9 @@ class hr_contract(models.Model):
 class hr_type_employee(models.Model):
     _name = 'hr.type.employee'
     _description = 'Tipo de Empleado'
-
     id_type = fields.Char('Código', required=True)
     name = fields.Char('Nombre', required=True)
 
-
-class hr_employee(models.Model):
-
-    _inherit = 'hr.employee'
-    _description = 'Employee Contract'
-    type_id = fields.Many2one('hr.type.employee', 'Tipo de Empleado')
 
 
 class hr_salary_rule(models.Model):

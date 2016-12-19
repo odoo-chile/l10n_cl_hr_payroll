@@ -48,18 +48,32 @@ class report_hr_salary_employee_bymonth(report_sxw.rml_parse):
     def get_worked_days(self, form, emp_id, emp_salary, mes, ano):
 
         self.cr.execute(
-            '''select number_of_days from hr_payslip_worked_days as p
+            '''select sum(number_of_days) from hr_payslip_worked_days as p
 left join hr_payslip as r on r.id = p.payslip_id
 where r.employee_id = %s  and (to_char(date_to,'mm')= %s)
-and (to_char(date_to,'yyyy')= %s) and p.code ='WORK100'
-group by number_of_days''', (emp_id, mes, ano,))
+and (to_char(date_to,'yyyy')= %s) and ('WORK100' = p.code)
+''', (emp_id, mes, ano,))
 
         max = self.cr.fetchone()
 
         if max is None:
             emp_salary.append(0.00)
+        elif  3>max[0]:
+            emp_salary.append(max[0]) 
         else:
-            emp_salary.append(max[0])
+            self.cr.execute(
+            '''select number_of_days from hr_payslip_worked_days as p
+left join hr_payslip as r on r.id = p.payslip_id
+where r.employee_id = %s  and (to_char(date_to,'mm')= %s)
+and (to_char(date_to,'yyyy')= %s) and (('No_Trabajado' = p.code) or ('Licencia' = p.code))
+group by number_of_days''', (emp_id, mes, ano,))
+            max = self.cr.fetchone()
+            try: 
+                emp_salary.append(30 - max[0]) 
+            except: 
+                emp_salary.append(30.00)
+
+
         return emp_salary
 
     def get_employe_basic_info(self, emp_salary, cod_id, mes, ano):
@@ -144,13 +158,13 @@ group by r.name, p.date_to,emp.id''', (emp_id, cod_id, mes, ano,))
         cont = 0
 
         self.cr.execute(
-            '''select emp.id, emp.identification_id, emp.name_related
+            '''select emp.id, emp.identification_id, emp.name_related, emp.middle_name, emp.last_name, emp.mothers_name
 from hr_payslip as p left join hr_employee as emp on emp.id = p.employee_id
 left join hr_contract as r on r.id = p.contract_id
 where p.state = 'done'  and (to_char(date_to,'mm')=%s)
 and (to_char(date_to,'yyyy')=%s)
-group by emp.id, emp.name_related, emp.identification_id
-order by name_related''', (last_month, last_year,))
+group by emp.id, emp.name_related, emp.middle_name, emp.last_name, emp.mothers_name, emp.identification_id
+order by last_name''', (last_month, last_year,))
 
         id_data = self.cr.fetchall()
         if id_data is None:
@@ -163,7 +177,10 @@ order by name_related''', (last_month, last_year,))
             for index in id_data:
                 emp_salary.append(id_data[cont][0])
                 emp_salary.append(id_data[cont][1])
-                emp_salary.append(id_data[cont][2])
+                emp_salary.append(id_data[cont][2])                
+                emp_salary.append(id_data[cont][3])
+                emp_salary.append(id_data[cont][4])
+                emp_salary.append(id_data[cont][5])
                 emp_salary = self.get_worked_days(
                     form, id_data[cont][0], emp_salary, last_month, last_year)
                 emp_salary = self.get_salary(
@@ -208,13 +225,13 @@ order by name_related''', (last_month, last_year,))
         cont = 0
 
         self.cr.execute(
-            '''select emp.id, emp.identification_id, emp.name_related
+            '''select emp.id, emp.identification_id, emp.name_related, emp.middle_name, emp.last_name, emp.mothers_name
 from hr_payslip as p left join hr_employee as emp on emp.id = p.employee_id
 left join hr_contract as r on r.id = p.contract_id
 where p.state = 'done'  and (to_char(date_to,'mm')=%s)
 and (to_char(date_to,'yyyy')=%s)
-group by emp.id, emp.name_related, emp.identification_id
-order by name_related''', (last_month, last_year))
+group by emp.id, emp.name_related, emp.middle_name, emp.last_name, emp.mothers_name, emp.identification_id
+order by last_name''', (last_month, last_year))
 
         id_data = self.cr.fetchall()
         if id_data is None:
@@ -228,6 +245,9 @@ order by name_related''', (last_month, last_year))
                 emp_salary.append(id_data[cont][0])
                 emp_salary.append(id_data[cont][1])
                 emp_salary.append(id_data[cont][2])
+                emp_salary.append(id_data[cont][3])
+                emp_salary.append(id_data[cont][4])
+                emp_salary.append(id_data[cont][5])
                 emp_salary = self.get_worked_days(
                     form, id_data[cont][0], emp_salary, last_month, last_year)
                 emp_salary = self.get_salary(

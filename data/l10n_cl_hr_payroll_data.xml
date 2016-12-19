@@ -11,49 +11,50 @@
 
         <!-- Indicadores Inputs -->
 
-        <record id="hr_indicadores_marzo" model="hr.indicadores">
-            <field name="name">Mayo 2016</field>
-            <field name="uf">25993.05</field>
-            <field name="utm">45497</field>
-            <field name="asignacion_familiar_primer">262326</field>
-            <field name="asignacion_familiar_segundo">383156</field>
-            <field name="asignacion_familiar_tercer">597593</field>
+        <record id="hr_indicadores_diciembre" model="hr.indicadores">
+            <field name="name">Diciembre 2016</field>
+            <field name="uf">26347.98</field>
+            <field name="utm">46183</field>
+            <field name="asignacion_familiar_primer">270196</field>
+            <field name="asignacion_familiar_segundo">394651</field>
+            <field name="asignacion_familiar_tercer">615521</field>
             <field name="caja_compensacion">0.60</field>
-            <field name="asignacion_familiar_monto_a">10269</field>
-            <field name="asignacion_familiar_monto_b">6302</field>
-            <field name="asignacion_familiar_monto_c">1992</field>
+            <field name="asignacion_familiar_monto_a">10577</field>
+            <field name="asignacion_familiar_monto_b">6491</field>
+            <field name="asignacion_familiar_monto_c">2052</field>
             <field name="fonasa">6.40</field>
             <field name="mutual_seguridad">0.95</field>
             <field name="pensiones_ips">18.84</field>
-            <field name="sueldo_minimo">250000</field>
+            <field name="sueldo_minimo">257500</field>
             <field name="tope_imponible_afp">74.30</field>
             <field name="tope_imponible_ips">60</field>
-            <field name="tope_imponible_salud">5.12</field>
+            <field name="tope_imponible_salud">5.201</field>
             <field name="tope_imponible_seguro_cesantia">111.4</field>
-            <field name="uta">542160</field>
+            <field name="uta">548688</field>
             <field name="deposito_convenido">900</field>
-            <field name="sueldo_minimo_otro">186631</field>
+            <field name="sueldo_minimo_otro">192230</field>
             <field name="contrato_plazo_fijo_empleador">2.40</field>
+            <field name="contrato_plazo_fijo_trabajador">0.60</field>
             <field name="contrato_plazo_indefinido_empleador">3.0</field>
             <field name="contrato_plazo_indefinido_empleador_otro">0.8</field>
             <field name="tasa_afp_cuprum">11.48</field>
             <field name="tasa_afp_capital">11.44</field>
             <field name="tasa_afp_provida">11.54</field>
             <field name="tasa_afp_modelo">10.77</field>
-            <field name="tasa_afp_planvital">10.47</field>
+            <field name="tasa_afp_planvital">10.41</field>
             <field name="tasa_afp_habitat">11.27</field>
-            <field name="tasa_sis_cuprum">1.15</field>
-            <field name="tasa_sis_capital">1.15</field>
-            <field name="tasa_sis_provida">1.15</field>
-            <field name="tasa_sis_planvital">1.15</field>
-            <field name="tasa_sis_habitat">1.15</field>
-            <field name="tasa_sis_modelo">1.15</field>
-            <field name="tasa_independiente_cuprum">12.63</field>
-            <field name="tasa_independiente_capital">12.59</field>
-            <field name="tasa_independiente_provida">12.69</field>
-            <field name="tasa_independiente_planvital">11.62</field>
-            <field name="tasa_independiente_habitat">12.42</field>
-            <field name="tasa_independiente_modelo">11.92</field>
+            <field name="tasa_sis_cuprum">1.41</field>
+            <field name="tasa_sis_capital">1.41</field>
+            <field name="tasa_sis_provida">1.41</field>
+            <field name="tasa_sis_planvital">1.41</field>
+            <field name="tasa_sis_habitat">1.41</field>
+            <field name="tasa_sis_modelo">1.41</field>
+            <field name="tasa_independiente_cuprum">12.89</field>
+            <field name="tasa_independiente_capital">12.85</field>
+            <field name="tasa_independiente_provida">12.95</field>
+            <field name="tasa_independiente_planvital">11.88</field>
+            <field name="tasa_independiente_habitat">12.68</field>
+            <field name="tasa_independiente_modelo">12.18</field>
             <field name="tope_anual_apv">600</field>
             <field name="tope_mensual_apv">50</field>
         </record>
@@ -229,7 +230,7 @@
         </record>
 
 
-     <!-- Tipos de Faltas -->
+     <!-- Tipos de Contribuyentes -->
 
 
         <record id="contrib_register_previred" model="hr.contribution.register">
@@ -258,17 +259,17 @@ try:
 except: 
  dias = 0.0
 try: 
- dias = dias + worked_days.Falta.number_of_days 
+ dias = dias + worked_days.No_Trabajado.number_of_days 
 except: 
  dias = dias
 
-if worked_days.WORK100.number_of_days == 0:
-    result = 0
+if 3 > worked_days.WORK100.number_of_days:
+    result = round((contract.wage / 30) * worked_days.WORK100.number_of_days)
 elif (contract.type_id.name == 'Sueldo Empresarial') &amp; ( contract.wage >=round(payslip.indicadores_id.tope_imponible_afp*payslip.indicadores_id.uf)):
     result = round(payslip.indicadores_id.tope_imponible_afp*payslip.indicadores_id.uf)
 elif (contract.type_id.name == 'Sueldo Empresarial'):
     result = contract.wage
-else:					
+else:                   
     result = round(contract.wage - ((contract.wage / 30) * dias))</field>						
         </record>						
 						
@@ -289,12 +290,12 @@ try:
 except: 
  dias = 0.0
 try: 
- dias = dias + worked_days.Falta.number_of_days 
+ dias = dias + worked_days.No_Trabajado.number_of_days 
 except: 
  dias = dias
 
-if worked_days.WORK100.number_of_days == 0:
-    result = 0
+if 3 > worked_days.WORK100.number_of_days:
+    result = round(((payslip.indicadores_id.sueldo_minimo - contract.wage) / 30) * worked_days.WORK100.number_of_days)
 else:
     result = round((payslip.indicadores_id.sueldo_minimo - contract.wage) - (((payslip.indicadores_id.sueldo_minimo - contract.wage) / 30) * dias))</field>						
 						
@@ -316,12 +317,12 @@ try:
 except: 
  dias = 0.0
 try: 
- dias = dias + worked_days.Falta.number_of_days 
+ dias = dias + worked_days.No_Trabajado.number_of_days 
 except: 
  dias = dias
 
-if worked_days.WORK100.number_of_days == 0:
-    result = 0
+if 3 > worked_days.WORK100.number_of_days:
+    result = round((contract.otros_imp / 30) * worked_days.WORK100.number_of_days)
 else:
     result = (contract.otros_imp -  ((contract.otros_imp / 30) * dias))</field>						
         </record>						
@@ -353,7 +354,8 @@ else:
             <field name="sequence" eval="6"/>						
             <field name="code">GRAT</field>						
             <field name="category_id" ref="IMPONIBLE"/>						
-            <field name="condition_select">none</field>						
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = (contract.gratificacion_legal is False)</field>
             <field name="amount_select">code</field>						
             <field name="amount_python_compute">GRATI=round(categories.IMPONIBLE * 25 / 100 )
 if (contract.type_id.name == 'Sueldo Empresarial'):
@@ -364,10 +366,58 @@ else:
     result = GRATI</field>						
         </record>
 
+        <record id="hr_rule_7" model="hr.salary.rule">						
+            <field name="name">BONO DE PRODUCCION</field>						
+            <field name="sequence" eval="7"/>						
+            <field name="code">PROD</field>						
+            <field name="category_id" ref="IMPONIBLE"/>	
+            <field name="condition_select">python</field>            					
+            <field name="condition_python">result = inputs.PROD.amount > 0</field>						
+            <field name="amount_select">code</field>						
+            <field name="amount_python_compute">result = inputs.PROD.amount</field>						
+        </record>  
 
-        <record id="hr_rule_7" model="hr.salary.rule">
+         <record id="hr_rule_8" model="hr.salary.rule">						
+            <field name="name">COMISIONES</field>						
+            <field name="sequence" eval="8"/>						
+            <field name="code">COMI</field>						
+            <field name="category_id" ref="IMPONIBLE"/>
+            <field name="condition_select">python</field>            						
+            <field name="condition_python">result = inputs.COMI.amount > 0</field>						
+            <field name="amount_select">code</field>						
+            <field name="amount_python_compute">result = inputs.COMI.amount</field>						
+        </record>              
+
+
+        <record id="hr_rule_9" model="hr.salary.rule">						
+            <field name="name">GRATIFICACION LEGAL</field>						
+            <field name="sequence" eval="9"/>						
+            <field name="code">GRAT</field>						
+            <field name="category_id" ref="IMPONIBLE"/>						
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = (contract.gratificacion_legal is True) &amp; (inputs.GRAT.amount > 0)</field>					
+            <field name="amount_select">code</field>						
+            <field name="amount_python_compute">result = inputs.GRAT.amount</field>						
+        </record>
+
+        <record id="hr_rule_10" model="hr.salary.rule">						
+            <field name="name">AGUINALDO</field>						
+            <field name="sequence" eval="10"/>						
+            <field name="code">AGUI</field>						
+            <field name="category_id" ref="IMPONIBLE"/>	
+            <field name="condition_select">python</field>            					
+            <field name="condition_python">result = inputs.AGUI.amount > 0</field>						
+            <field name="amount_select">code</field>						
+            <field name="amount_python_compute">result = inputs.AGUI.amount</field>						
+        </record>
+
+
+
+
+
+        <record id="hr_rule_11" model="hr.salary.rule">
             <field name="name">TOTAL IMPONIBLE</field>
-            <field name="sequence" eval="7"/>
+            <field name="sequence" eval="11"/>
             <field name="code">TOTIM</field>
             <field name="category_id" ref="SUBT"/>
             <field name="condition_select">none</field>
@@ -375,9 +425,9 @@ else:
             <field name="amount_python_compute">result = round(categories.IMPONIBLE)</field>
         </record>
 						
-        <record id="hr_rule_8" model="hr.salary.rule">
+        <record id="hr_rule_12" model="hr.salary.rule">
             <field name="name">ASIGNACION FAMILIAR</field>
-            <field name="sequence" eval="8"/>
+            <field name="sequence" eval="12"/>
             <field name="code">ASIGFAM</field>
             <field name="category_id" ref="NOIMPO"/>
             <field name="condition_select">python</field>
@@ -399,9 +449,9 @@ elif payslip.indicadores_id.asignacion_familiar_tercer  >= categories.IMPONIBLE:
     result = round(((payslip.indicadores_id.asignacion_familiar_monto_c*contract.carga_familiar) / 30) * (dias))</field>
         </record>
 			
-        <record id="hr_rule_9" model="hr.salary.rule">
+        <record id="hr_rule_13" model="hr.salary.rule">
             <field name="name">COLACION</field>
-            <field name="sequence" eval="9"/>
+            <field name="sequence" eval="13"/>
             <field name="code">COL</field>
             <field name="category_id" ref="NOIMPO"/>
             <field name="condition_select">python</field>
@@ -413,21 +463,21 @@ try:
 except: 
  dias = 0.0
 try: 
- dias = dias + worked_days.Falta.number_of_days 
+ dias = dias + worked_days.No_Trabajado.number_of_days 
 except: 
  dias = dias
 
-if worked_days.WORK100.number_of_days == 0:
-    result = 0
+if 3 > worked_days.WORK100.number_of_days:
+    result = round((contract.colacion / 30) * worked_days.WORK100.number_of_days)
 else:
     result = round(contract.colacion  - ((contract.colacion / 30) * dias))</field>
 
 
         </record>
 
-        <record id="hr_rule_10" model="hr.salary.rule">
+        <record id="hr_rule_14" model="hr.salary.rule">
             <field name="name">MOVILIZACION</field>
-            <field name="sequence" eval="10"/>
+            <field name="sequence" eval="14"/>
             <field name="code">MOV</field>
             <field name="category_id" ref="NOIMPO"/>
             <field name="condition_select">python</field>
@@ -439,20 +489,20 @@ try:
 except: 
  dias = 0.0
 try: 
- dias = dias + worked_days.Falta.number_of_days 
+ dias = dias + worked_days.No_Trabajado.number_of_days 
 except: 
  dias = dias
 
-if worked_days.WORK100.number_of_days == 0:
-    result = 0
+if 3 > worked_days.WORK100.number_of_days:
+    result = round((contract.movilizacion / 30) * worked_days.WORK100.number_of_days)
 else:
     result = round(contract.movilizacion  - ((contract.movilizacion / 30) * dias))</field>
 
         </record>
 
-        <record id="hr_rule_11" model="hr.salary.rule">
+        <record id="hr_rule_15" model="hr.salary.rule">
             <field name="name">OTROS NO IMPONIBLE</field>
-            <field name="sequence" eval="11"/>
+            <field name="sequence" eval="15"/>
             <field name="code">OTRONOIMP</field>
             <field name="category_id" ref="NOIMPO"/>
             <field name="condition_select">python</field>
@@ -464,18 +514,18 @@ try:
 except: 
  dias = 0.0
 try: 
- dias = dias + worked_days.Falta.number_of_days 
+ dias = dias + worked_days.No_Trabajado.number_of_days 
 except: 
  dias = dias
-if worked_days.WORK100.number_of_days == 0:
-    result = 0
+if 3 > worked_days.WORK100.number_of_days:
+    result = round((contract.otro_no_imp / 30) * worked_days.WORK100.number_of_days)
 else:
     result = round(contract.otro_no_imp - ((contract.otro_no_imp / 30) * dias))</field>
         </record>
 
-        <record id="hr_rule_12" model="hr.salary.rule">
+        <record id="hr_rule_16" model="hr.salary.rule">
             <field name="name">VIATICO</field>
-            <field name="sequence" eval="12"/>
+            <field name="sequence" eval="16"/>
             <field name="code">VIASAN</field>
             <field name="category_id" ref="NOIMPO"/>
             <field name="condition_select">python</field>
@@ -487,18 +537,18 @@ try:
 except: 
  dias = 0.0
 try: 
- dias = dias + worked_days.Falta.number_of_days 
+ dias = dias + worked_days.No_Trabajado.number_of_days 
 except: 
  dias = dias
-if worked_days.WORK100.number_of_days == 0:
-    result = 0
+if 3 > worked_days.WORK100.number_of_days:
+    result = round((contract.viatico_santiago / 30)* worked_days.WORK100.number_of_days)
 else:
     result = round(contract.viatico_santiago - ((contract.viatico_santiago / 30) * dias))</field>
         </record>
 
-        <record id="hr_rule_13" model="hr.salary.rule">
+        <record id="hr_rule_17" model="hr.salary.rule">
             <field name="name">TOTAL NO IMPONIBLE</field>
-            <field name="sequence" eval="13"/>
+            <field name="sequence" eval="17"/>
             <field name="code">TOTNOI</field>
             <field name="category_id" ref="SUBT"/>
             <field name="condition_select">none</field>
@@ -506,9 +556,9 @@ else:
             <field name="amount_python_compute">result = round(categories.NOIMPO)</field>
         </record>
 						
-        <record id="hr_rule_14" model="hr.salary.rule">						
+        <record id="hr_rule_18" model="hr.salary.rule">						
             <field name="name">PREVISION</field>						
-            <field name="sequence" eval="14"/>						
+            <field name="sequence" eval="18"/>						
             <field name="code">PREV</field>						
             <field name="category_id" ref="PREV"/>						
             <field name="condition_select">none</field>						
@@ -537,9 +587,9 @@ else:
         </record>
 
 
-        <record id="hr_rule_15" model="hr.salary.rule">						
+        <record id="hr_rule_19" model="hr.salary.rule">						
             <field name="name">SEGURO CESANTIA</field>						
-            <field name="sequence" eval="15"/>						
+            <field name="sequence" eval="19"/>						
             <field name="code">SECE</field>						
             <field name="category_id" ref="PREV"/>						
             <field name="condition_select">none</field>						
@@ -551,31 +601,38 @@ elif contract.type_id.name == 'Sueldo Empresarial':
 elif contract.type_id.name == 'Plazo Fijo':
      result = 0 
 elif TOTIM >=round(payslip.indicadores_id.tope_imponible_seguro_cesantia*payslip.indicadores_id.uf):
-     result =round(payslip.indicadores_id.tope_imponible_seguro_cesantia*payslip.indicadores_id.uf*0.6/100) 
+     result =round(payslip.indicadores_id.tope_imponible_seguro_cesantia*payslip.indicadores_id.uf*payslip.indicadores_id.contrato_plazo_fijo_trabajador/100) 
 elif contract.type_id.name == 'Plazo Indefinido':
-     result = round(TOTIM*0.6/100) 
+     result = round(TOTIM*payslip.indicadores_id.contrato_plazo_fijo_trabajador/100) 
 else:
      result = 0</field>						
         </record>
 
 
-        <record id="hr_rule_16" model="hr.salary.rule">
+        <record id="hr_rule_20" model="hr.salary.rule">
             <field name="name">APORTE AL AHORRO VOLUNTARIO</field>
-            <field name="sequence" eval="16"/>
+            <field name="sequence" eval="20"/>
             <field name="code">APV</field>
             <field name="category_id" ref="PREV"/>
             <field name="condition_select">python</field>
             <field name="condition_python">result = contract.aporte_voluntario > 0</field>
             <field name="amount_select">code</field>
-            <field name="amount_python_compute">if contract.aporte_voluntario > round(payslip.indicadores_id.tope_mensual_apv * payslip.indicadores_id.uf ):
+            <field name="amount_python_compute">if contract.aporte_voluntario_moneda == 'uf':
+    tasa = payslip.indicadores_id.uf
+elif contract.aporte_voluntario_moneda == 'clp':
+    tasa = 1
+else:
+    tasa = 0
+
+if round(contract.aporte_voluntario*tasa) > round(payslip.indicadores_id.tope_mensual_apv * payslip.indicadores_id.uf ):
     result = round(payslip.indicadores_id.tope_mensual_apv * payslip.indicadores_id.uf )
 else:
-    result = contract.aporte_voluntario</field>
+    result = round(contract.aporte_voluntario*tasa)</field>
         </record>
 
-        <record id="hr_rule_17" model="hr.salary.rule">						
+        <record id="hr_rule_21" model="hr.salary.rule">						
             <field name="name">SEGURO CESANTIA APORTE EMPRESA</field>						
-            <field name="sequence" eval="17"/>						
+            <field name="sequence" eval="21"/>						
             <field name="code">SECEEMP</field>						
             <field name="category_id" ref="COMP"/>
             <field name="appears_on_payslip" eval="False"/>						
@@ -609,15 +666,30 @@ else:
      result = 0</field>						
         </record>
 
-        <record id="hr_rule_18" model="hr.salary.rule">						
+        <record id="hr_rule_22" model="hr.salary.rule">						
             <field name="name">PREVISION EMPRESA AFP SIS</field>						
-            <field name="sequence" eval="18"/>						
+            <field name="sequence" eval="22"/>						
             <field name="code">PREVEMP</field>						
             <field name="category_id" ref="COMP"/>
             <field name="appears_on_payslip" eval="False"/>						
             <field name="condition_select">none</field>						
             <field name="amount_select">code</field>						
             <field name="amount_python_compute">DEVENGABLE=round(contract.wage+contract.otros_imp+inputs.HEX.amount)
+
+if contract.afp_id.name == 'CAPITAL':
+	tasa = payslip.indicadores_id.tasa_sis_capital
+elif contract.afp_id.name == 'CUPRUM':
+	tasa = payslip.indicadores_id.tasa_sis_cuprum
+elif contract.afp_id.name == 'HABITAT':
+	tasa = payslip.indicadores_id.tasa_sis_habitat
+elif contract.afp_id.name == 'MODELO':
+	tasa = payslip.indicadores_id.tasa_sis_modelo
+elif contract.afp_id.name == 'PLANVITAL':
+	tasa = payslip.indicadores_id.tasa_sis_planvital
+elif contract.afp_id.name == 'PROVIDAL':
+	tasa = payslip.indicadores_id.tasa_sis_provida
+else:
+	tasa = 0
 
 GRATI=round(DEVENGABLE * 25 / 100 )
 if GRATI > (4.75 * payslip.indicadores_id.sueldo_minimo /12):
@@ -628,17 +700,17 @@ else:
 if contract.pension is True:
     result = 0
 elif TOTIM >=round(payslip.indicadores_id.tope_imponible_afp*payslip.indicadores_id.uf):
-    result = round(round(payslip.indicadores_id.tope_imponible_afp*payslip.indicadores_id.uf)*1.15 /100)
+    result = round(round(payslip.indicadores_id.tope_imponible_afp*payslip.indicadores_id.uf)*tasa /100)
 elif TOTIM ==0:
-     result =round(round(DEVENGABLE+GRATI)*1.15 /100)
+     result =round(round(DEVENGABLE+GRATI)*tasa /100)
 else:
-    result = round(round(TOTIM)*1.15 /100)</field>						
+    result = round(round(TOTIM)*tasa /100)</field>						
         </record>
 
 
-        <record id="hr_rule_19" model="hr.salary.rule">						
+        <record id="hr_rule_23" model="hr.salary.rule">						
             <field name="name">MUTUAL SEGURIDAD</field>						
-            <field name="sequence" eval="19"/>						
+            <field name="sequence" eval="23"/>						
             <field name="code">MUT</field>						
             <field name="category_id" ref="COMP"/>
             <field name="appears_on_payslip" eval="False"/>						
@@ -655,19 +727,41 @@ else:
             <field name="register_id" ref="contrib_register_previred"/>						
         </record>
 
-        <record id="hr_rule_20" model="hr.salary.rule">
+
+                <record id="hr_rule_24" model="hr.salary.rule">
+            <field name="name">SEGURO COMPLEMENTARIO</field>
+            <field name="sequence" eval="24"/>
+            <field name="code">SECOMP</field>
+            <field name="category_id" ref="COMP"/>
+            <field name="condition_select">python</field>
+            <field name="appears_on_payslip" eval="False"/>            
+            <field name="condition_python">result = contract.seguro_complementario > 0</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">if contract.seguro_complementario_moneda == 'uf':
+    tasa = payslip.indicadores_id.uf
+elif contract.seguro_complementario_moneda == 'clp':
+    tasa = 1
+else:
+    tasa = 0
+
+if round(contract.seguro_complementario*tasa) > round(payslip.indicadores_id.tope_mensual_apv * payslip.indicadores_id.uf ):
+    result = round(payslip.indicadores_id.tope_mensual_apv * payslip.indicadores_id.uf )
+else:
+    result = round(contract.seguro_complementario*tasa)</field>
+        </record>
+
+
+        <record id="hr_rule_25" model="hr.salary.rule">
             <field name="name">AFP X PAGAR</field>
-            <field name="sequence" eval="20"/>
+            <field name="sequence" eval="25"/>
             <field name="code">HABITAT</field>
             <field name="category_id" ref="SUBT"/>
-            <field name="condition_select">none</field>	
+            <field name="condition_select">none</field> 
             <field name="appears_on_payslip" eval="False"/>
             <field name="amount_select">code</field>
             <field name="amount_python_compute">result =categories.PREV + PREVEMP + SECEEMP</field>
             <field name="register_id" ref="contrib_register_previred"/>
         </record>
-
-
 
 
 <record id="hr_rule_26" model="hr.salary.rule">						
@@ -699,6 +793,8 @@ except:
  dias = 0.0
 if contract.isapre_id.name == 'FONASA':
     result = False
+elif worked_days.WORK100.number_of_days == 0:
+     result = False 
 else:
     result = round((payslip.indicadores_id.uf / 30 * (30 - dias)) * contract.isapre_cotizacion_uf) > round(SALUD)</field>
             <field name="amount_select">code</field>
@@ -891,7 +987,13 @@ result = categories.IMPONIBLE + categories.NOIMPO - asig</field>
             <field name="condition_select">none</field>						
             <field name="amount_select">code</field>
             <field name="active">True</field>						
-            <field name="amount_python_compute">result = round(SECEEMP) + round(PREVEMP) + round(MUT)</field>						
+            <field name="amount_python_compute">SC = 0 
+try: 
+ SC = round(SECOMP)
+except: 
+ SC = 0
+
+result = round(SECEEMP) + round(PREVEMP) + round(MUT) + round(SC)</field>						
         </record>
 
 
@@ -916,18 +1018,38 @@ result = categories.IMPONIBLE + categories.NOIMPO - asig</field>
         <record id="hr_rule_input_horas_ext_50" model="hr.rule.input">
             <field name="code">HEX</field>
             <field name="name">HORAS EXTRA ART 32</field>
-            <field name="input_id" ref="hr_rule_5"/>
+            <field name="input_id" ref="hr_rule_4"/>
         </record>
 
         <record id="hr_rule_input_horas_ext_100" model="hr.rule.input">
             <field name="code">HEX100</field>
             <field name="name">HORAS DESCUENTO</field>
-            <field name="input_id" ref="hr_rule_6"/>
+            <field name="input_id" ref="hr_rule_5"/>
         </record>
 
+        <record id="hr_rule_input_bono_produccion" model="hr.rule.input">
+            <field name="code">PROD</field>
+            <field name="name">BONO DE PRODUCCION</field>
+            <field name="input_id" ref="hr_rule_7"/>
+        </record>
 
+         <record id="hr_rule_input_comisiones" model="hr.rule.input">
+            <field name="code">COMI</field>
+            <field name="name">COMISIONES</field>
+            <field name="input_id" ref="hr_rule_8"/>
+        </record>       
 
+         <record id="hr_rule_input_gratificacion_legal" model="hr.rule.input">
+            <field name="code">GRAT</field>
+            <field name="name">GRATIFICACION LEGAL</field>
+            <field name="input_id" ref="hr_rule_9"/>
+        </record>  
 
+           <record id="hr_rule_input_aguinaldo" model="hr.rule.input">
+            <field name="code">AGUI</field>
+            <field name="name">AGUINALDO</field>
+            <field name="input_id" ref="hr_rule_10"/>
+        </record>        
 
  <!-- Estructura Inputs -->
 
@@ -935,7 +1057,7 @@ result = categories.IMPONIBLE + categories.NOIMPO - asig</field>
             <field name="name">Codigo del Trabajo</field>
             <field name="code">Codigo del Trabajo de Chile</field>
             <field name="parent_id"></field>
-            <field eval="[(6, 0, [ref('hr_rule_1'), ref('hr_rule_2'),ref('hr_rule_3'),ref('hr_rule_4'),ref('hr_rule_5'),ref('hr_rule_6'),ref('hr_rule_7'),ref('hr_rule_8'),ref('hr_rule_9'),ref('hr_rule_10'),ref('hr_rule_11'),ref('hr_rule_12'),ref('hr_rule_13'),ref('hr_rule_14'),ref('hr_rule_15'),ref('hr_rule_16'),ref('hr_rule_17'),ref('hr_rule_18'),ref('hr_rule_19'),ref('hr_rule_20'),ref('hr_rule_26'),ref('hr_rule_27'),ref('hr_rule_28'),ref('hr_rule_33'),ref('hr_rule_34'),ref('hr_rule_35'),ref('hr_rule_36'),ref('hr_rule_37'),ref('hr_rule_38'),ref('hr_rule_39'),ref('hr_rule_40'),ref('hr_rule_41'),ref('hr_rule_42'),ref('hr_rule_43'),ref('hr_rule_44')])]" name="rule_ids"/>
+            <field eval="[(6, 0, [ref('hr_rule_1'), ref('hr_rule_2'),ref('hr_rule_3'),ref('hr_rule_4'),ref('hr_rule_5'),ref('hr_rule_6'),ref('hr_rule_7'),ref('hr_rule_8'),ref('hr_rule_9'),ref('hr_rule_10'),ref('hr_rule_11'),ref('hr_rule_12'),ref('hr_rule_13'),ref('hr_rule_14'),ref('hr_rule_15'),ref('hr_rule_16'),ref('hr_rule_17'),ref('hr_rule_18'),ref('hr_rule_19'),ref('hr_rule_20'),ref('hr_rule_21'),ref('hr_rule_22'),ref('hr_rule_23'),ref('hr_rule_24'),ref('hr_rule_25'),ref('hr_rule_26'),ref('hr_rule_27'),ref('hr_rule_28'),ref('hr_rule_33'),ref('hr_rule_34'),ref('hr_rule_35'),ref('hr_rule_36'),ref('hr_rule_37'),ref('hr_rule_38'),ref('hr_rule_39'),ref('hr_rule_40'),ref('hr_rule_41'),ref('hr_rule_42'),ref('hr_rule_43'),ref('hr_rule_44')])]" name="rule_ids"/>
         </record>
 
 
@@ -946,7 +1068,7 @@ result = categories.IMPONIBLE + categories.NOIMPO - asig</field>
             <field name="name">Mensual</field>
         </record>
 
- <!-- Hoarios Inputs -->
+ <!-- Horarios Inputs -->
 
         <record id="hr_resource_calendar_attendance_mon" model="resource.calendar.attendance">
             <field name="name">Todo el dia</field>
@@ -1006,7 +1128,6 @@ result = categories.IMPONIBLE + categories.NOIMPO - asig</field>
 
 
 
-
         <record id="hr_resource_calendar_attendance_mon" model="resource.calendar.attendance">
             <field name="name">Todo el dia</field>
             <field name="hour_from">8.5</field>
@@ -1015,6 +1136,7 @@ result = categories.IMPONIBLE + categories.NOIMPO - asig</field>
             <field name="calendar_id"     ref="hr_resource_monthly"/>
         </record>
 
+ <!-- Tipo de empleado -->
 
         <record id="hr_type_employee_active" model="hr.type.employee">
             <field name="name">Activo</field>
