@@ -11,28 +11,28 @@
 
         <!-- Indicadores Inputs -->
 
-        <record id="hr_indicadores_diciembre" model="hr.indicadores">
-            <field name="name">Diciembre 2016</field>
-            <field name="uf">26347.98</field>
-            <field name="utm">46183</field>
-            <field name="asignacion_familiar_primer">270196</field>
-            <field name="asignacion_familiar_segundo">394651</field>
-            <field name="asignacion_familiar_tercer">615521</field>
+        <record id="hr_indicadores_julio" model="hr.indicadores">
+            <field name="name">Marzo 2017</field>
+            <field name="uf">26392.09</field>
+            <field name="utm">46137</field>
+            <field name="asignacion_familiar_primer">277016</field>
+            <field name="asignacion_familiar_segundo">404613</field>
+            <field name="asignacion_familiar_tercer">631058</field>
             <field name="caja_compensacion">0.60</field>
-            <field name="asignacion_familiar_monto_a">10577</field>
-            <field name="asignacion_familiar_monto_b">6491</field>
-            <field name="asignacion_familiar_monto_c">2052</field>
+            <field name="asignacion_familiar_monto_a">10844</field>
+            <field name="asignacion_familiar_monto_b">6655</field>
+            <field name="asignacion_familiar_monto_c">2104</field>
             <field name="fonasa">6.40</field>
             <field name="mutual_seguridad">0.95</field>
             <field name="pensiones_ips">18.84</field>
-            <field name="sueldo_minimo">257500</field>
-            <field name="tope_imponible_afp">74.30</field>
+            <field name="sueldo_minimo">264000</field>
+            <field name="tope_imponible_afp">75.7</field>
             <field name="tope_imponible_ips">60</field>
             <field name="tope_imponible_salud">5.201</field>
-            <field name="tope_imponible_seguro_cesantia">111.4</field>
-            <field name="uta">548688</field>
+            <field name="tope_imponible_seguro_cesantia">113.5</field>
+            <field name="uta">553644</field>
             <field name="deposito_convenido">900</field>
-            <field name="sueldo_minimo_otro">192230</field>
+            <field name="sueldo_minimo_otro">197082</field>
             <field name="contrato_plazo_fijo_empleador">2.40</field>
             <field name="contrato_plazo_fijo_trabajador">0.60</field>
             <field name="contrato_plazo_indefinido_empleador">3.0</field>
@@ -52,45 +52,53 @@
             <field name="tasa_independiente_cuprum">12.89</field>
             <field name="tasa_independiente_capital">12.85</field>
             <field name="tasa_independiente_provida">12.95</field>
-            <field name="tasa_independiente_planvital">11.88</field>
+            <field name="tasa_independiente_planvital">11.82</field>
             <field name="tasa_independiente_habitat">12.68</field>
             <field name="tasa_independiente_modelo">12.18</field>
             <field name="tope_anual_apv">600</field>
             <field name="tope_mensual_apv">50</field>
         </record>
 
-        <!-- ISAPRES -->
+        <!-- ISAPRES     -->
+
         <record id="hr_isapre_fonasa" model="hr.isapre">
+            <field name="codigo">07</field>            
             <field name="rut">61603000-0</field>
             <field name="name">FONASA</field>
         </record>
 
         <record id="hr_isapre_colmena" model="hr.isapre">
+            <field name="codigo">04</field>
             <field name="rut">94954000-6</field>
             <field name="name">COLMENA GOLDEN CROSS</field>
         </record>
 
         <record id="hr_isapre_banmedica" model="hr.isapre">
+            <field name="codigo">01</field>
             <field name="rut">96572800-7</field>
             <field name="name">BANMEDICA</field>
         </record>
 
         <record id="hr_isapre_consalud" model="hr.isapre">
+            <field name="codigo">02</field>
             <field name="rut">96856780-2</field>
             <field name="name">CONSALUD</field>
         </record>
 
         <record id="hr_isapre_masvida" model="hr.isapre">
+            <field name="codigo">17</field>
             <field name="rut"> </field>
             <field name="name">MAS VIDA</field>
         </record>
 
         <record id="hr_isapre_vidatres" model="hr.isapre">
+            <field name="codigo">03</field>
             <field name="rut"> </field>
             <field name="name">VIDA TRES</field>
         </record>
 
         <record id="hr_isapre_cruzblanca" model="hr.isapre">
+            <field name="codigo">05</field>
             <field name="rut"> </field>
             <field name="name">CRUZ BLANCA</field>
         </record>
@@ -162,7 +170,62 @@
         </record>
 
 
+       <!-- CCAF     -->
 
+        <record id="hr_ccaf_sin" model="hr.ccaf">
+            <field name="codigo">00</field>
+            <field name="name">SIN CCAF</field>
+        </record> 
+
+        <record id="hr_ccaf_andes" model="hr.ccaf">
+            <field name="codigo">01</field>
+            <field name="name">LOS ANDES</field>
+        </record> 
+
+        <record id="hr_ccaf_araucana" model="hr.ccaf">
+            <field name="codigo">02</field>
+            <field name="name">LA ARAUCANA</field>
+        </record>        
+
+        <record id="hr_ccaf_los_heroes" model="hr.ccaf">
+            <field name="codigo">03</field>
+            <field name="name">LOS HEROES</field>
+        </record> 
+
+        <record id="hr_ccaf_gabriela_mistral" model="hr.ccaf">
+            <field name="codigo">05</field>
+            <field name="name">GABRIEL MISTRAL</field>
+        </record> 
+
+        <record id="hr_ccaf_18" model="hr.ccaf">
+            <field name="codigo">06</field>
+            <field name="name">18 DE SEPTIEMBRE</field>
+        </record> 
+
+
+       <!-- MUTUAL     --> 
+
+        <record id="hr_mutual_sin" model="hr.mutual">
+            <field name="codigo">00</field>
+            <field name="name">SIN MUTUAL</field>
+        </record> 
+
+        <record id="hr_mutual_achs" model="hr.mutual">
+            <field name="codigo">01</field>
+            <field name="name">ASOCIACION CHILENA DE SEGURIDAD (ACHS)</field>
+        </record> 
+
+        <record id="hr_mutual_cchc" model="hr.mutual">
+            <field name="codigo">02</field>
+            <field name="name">MUTUAL DE SEGURIDAD CCHC</field>
+        </record> 
+
+        <record id="hr_mutual_ist" model="hr.mutual">
+            <field name="codigo">03</field>
+            <field name="name">INSTITUTO DE SEGURIDAD DEL TRABAJO I.S.T</field>
+        </record>
+
+ 
 
 		
 	
@@ -215,18 +278,22 @@
        <!-- Contract Types -->
         <record id="hr_contract_type_not_defined" model="hr.contract.type">
             <field name="name">Plazo Indefinido</field>
+            <field name="codigo">1</field>
         </record>
 
         <record id="hr_contract_type_fixed" model="hr.contract.type">
             <field name="name">Plazo Fijo</field>
+            <field name="codigo">7</field>
         </record>
 
         <record id="hr_contract_type_more_eleven" model="hr.contract.type">
             <field name="name">Indefinido 11 anos o mas</field>
+            <field name="codigo">1</field>
         </record>
 
         <record id="hr_contract_type_enterprice_wage" model="hr.contract.type">
             <field name="name">Sueldo Empresarial</field>
+            <field name="codigo">1</field>
         </record>
 
 
@@ -431,22 +498,24 @@ else:
             <field name="code">ASIGFAM</field>
             <field name="category_id" ref="NOIMPO"/>
             <field name="condition_select">python</field>
-            <field name="condition_python">result = (contract.carga_familiar != 0) &amp; (payslip.indicadores_id.asignacion_familiar_tercer >= contract.wage) &amp; (contract.pension is False)</field>
+            <field name="condition_python">result = ((contract.carga_familiar != 0) or (contract.carga_familiar_maternal != 0) or (contract.carga_familiar_invalida != 0)) &amp; (payslip.indicadores_id.asignacion_familiar_tercer >= contract.wage) &amp; (contract.pension is False)</field>
             <field name="amount_select">code</field>
             <field name="amount_python_compute">if worked_days.WORK100.number_of_days > 25:
  dias= 30	
 else:
  dias= worked_days.WORK100.number_of_days
 
+carga= contract.carga_familiar + contract.carga_familiar_maternal + contract.carga_familiar_invalida
+
 
 if worked_days.WORK100.number_of_days == 0:
     result = 0
 elif payslip.indicadores_id.asignacion_familiar_primer >= categories.IMPONIBLE:
-    result = round(((payslip.indicadores_id.asignacion_familiar_monto_a*contract.carga_familiar) / 30) * (dias))
+    result = round(((payslip.indicadores_id.asignacion_familiar_monto_a*carga) / 30) * (dias))
 elif payslip.indicadores_id.asignacion_familiar_segundo  >= categories.IMPONIBLE:
-    result = round(((payslip.indicadores_id.asignacion_familiar_monto_b*contract.carga_familiar) / 30) * (dias))
+    result = round(((payslip.indicadores_id.asignacion_familiar_monto_b*carga) / 30) * (dias))
 elif payslip.indicadores_id.asignacion_familiar_tercer  >= categories.IMPONIBLE:
-    result = round(((payslip.indicadores_id.asignacion_familiar_monto_c*contract.carga_familiar) / 30) * (dias))</field>
+    result = round(((payslip.indicadores_id.asignacion_familiar_monto_c*carga) / 30) * (dias))</field>
         </record>
 			
         <record id="hr_rule_13" model="hr.salary.rule">
@@ -669,7 +738,7 @@ else:
         <record id="hr_rule_22" model="hr.salary.rule">						
             <field name="name">PREVISION EMPRESA AFP SIS</field>						
             <field name="sequence" eval="22"/>						
-            <field name="code">PREVEMP</field>						
+            <field name="code">SIS</field>						
             <field name="category_id" ref="COMP"/>
             <field name="appears_on_payslip" eval="False"/>						
             <field name="condition_select">none</field>						
@@ -754,12 +823,12 @@ else:
         <record id="hr_rule_25" model="hr.salary.rule">
             <field name="name">AFP X PAGAR</field>
             <field name="sequence" eval="25"/>
-            <field name="code">HABITAT</field>
+            <field name="code">AFP</field>
             <field name="category_id" ref="SUBT"/>
             <field name="condition_select">none</field> 
             <field name="appears_on_payslip" eval="False"/>
             <field name="amount_select">code</field>
-            <field name="amount_python_compute">result =categories.PREV + PREVEMP + SECEEMP</field>
+            <field name="amount_python_compute">result =categories.PREV + SIS + SECEEMP</field>
             <field name="register_id" ref="contrib_register_previred"/>
         </record>
 
@@ -993,7 +1062,7 @@ try:
 except: 
  SC = 0
 
-result = round(SECEEMP) + round(PREVEMP) + round(MUT) + round(SC)</field>						
+result = round(SECEEMP) + round(SIS) + round(MUT) + round(SC)</field>						
         </record>
 
 
