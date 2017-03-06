@@ -11,7 +11,7 @@
 
         <!-- Indicadores Inputs -->
 
-        <record id="hr_indicadores_julio" model="hr.indicadores">
+        <record id="hr_indicadores_marzo_2017" model="hr.indicadores">
             <field name="name">Marzo 2017</field>
             <field name="uf">26392.09</field>
             <field name="utm">46137</field>
