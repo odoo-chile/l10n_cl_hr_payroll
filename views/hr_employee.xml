@@ -8,7 +8,7 @@
             <field name='model'>hr.employee</field>
             <field name='inherit_id' ref='hr.view_employee_form'/>
             <field name='arch' type='xml'>
-                <xpath expr="//label[@for='category_ids']" position="before">
+            <field name="category_ids" position="before">
                     <group>
                         <group>
                             <field name="middle_name" placeholder="Second Name..." nolabel="1"/>
@@ -19,16 +19,24 @@
                         </group>
                         <field name="complete_name" invisible='1'/>
                     </group>
-                </xpath>
-                <xpath expr="//field[@name='marital']" position="after">
+                </field>
+
+<field name="marital" position="after">
+
                     <field name="couple_last_name" placeholder="Couple Last Name..."/>
-                </xpath>
-                <xpath expr="//field[@name='name']" position="attributes">
+</field>
+
+
+<field name="name" position="attributes">
                     <attribute name="placeholder">First Name...</attribute>
-                </xpath>
-                <xpath expr="//field[@name='department_id']" position="before">
-                    <field name="type_id"/>
-                </xpath>
+</field>
+
+
+<field name="department_id" position="before">
+                    <field name="type_id" required="1"/>
+</field>
+
+
                 <field name="identification_id" position="replace">
                     <field name="identification_id" required="1"/>
                 </field>    
@@ -55,11 +63,11 @@
             <field name='model'>hr.employee</field>
             <field name='inherit_id' ref='hr.view_employee_tree'/>
             <field name='arch' type='xml'>
-                <xpath expr="//field[@name='name']" position="replace">
+                <field name="name" position="replace">
                     <field name="complete_name"/>
                     <field name="full_first_name" invisible="1"/>
                     <field name="full_last_name" invisible="1"/>
-                </xpath>
+                </field>
             </field>
         </record>  
 
@@ -69,11 +77,11 @@
             <field name='model'>hr.employee</field>
             <field name='inherit_id' ref='hr.view_employee_filter'/>
             <field name='arch' type='xml'>
-                <xpath expr="//field[@name='name']" position="after">
+                <field name="name" position="after">
                     <field name="complete_name"/>
                     <field name="full_first_name"/>
                     <field name="full_last_name"/>
-                </xpath>
+                </field>
             </field>
         </record>
 

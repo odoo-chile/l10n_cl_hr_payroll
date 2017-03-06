@@ -97,7 +97,7 @@
                                   <td><strong>DIAS</strong></td>
                                   <td><strong>HORAS EXTRA</strong></td>
                                   <td><strong>DESCUENTO</strong></td>
-                                  <td colspan="2"><strong>CARGAS</strong></td>
+                                  <td colspan="3"><strong>CARGAS</strong></td>
                                   <td><strong>IMPONIBLE</strong></td>
                                   <td><strong>TRIBUTABLE</strong></td>
                           </tr>
@@ -139,8 +139,13 @@
                         </th>
                         <th>
                           <span t-field="o.contract_id.carga_familiar"/>
-                        </th> 
-                        <th/>
+                        </th>
+                        <th>
+                          <span t-field="o.contract_id.carga_familiar_maternal"/>
+                        </th>
+                         <th>
+                          <span t-field="o.contract_id.carga_familiar_invalida"/>
+                        </th>                       
                         <th>
                           <t t-foreach="get_payslip_lines(o.line_ids)" t-as="p">
                             <t t-if="('TOTIM' == p.code)">

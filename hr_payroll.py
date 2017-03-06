@@ -81,9 +81,9 @@ class hr_indicadores_previsionales(models.Model):
     pensiones_ips = fields.Float(
         'Pensiones IPS',  help="Pensiones IPS")
     sueldo_minimo = fields.Float(
-        'Sueldo Mínimo',  help="Sueldo Minimo")
+        'Trab. Dependientes e Independientes',  help="Sueldo Minimo")
     sueldo_minimo_otro = fields.Float(
-        'Sueldo Mínimo Menores de 18 y Mayores de 65', 
+        'Menores de 18 y Mayores de 65:', 
         help="Sueldo Mínimo para Menores de 18 y Mayores a 65")
     tasa_afp_cuprum = fields.Float(
         'Cuprum',  help="Tasa AFP Cuprum")
@@ -141,6 +141,8 @@ class hr_indicadores_previsionales(models.Model):
     uta = fields.Float('UTA',  help="UTA Fin de Mes")
     uf_otros = fields.Float(
         'UF Otros',  help="UF Seguro Complementario")
+    mutualidad_id = fields.Many2one('hr.mutual', 'MUTUAL')
+    ccaf_id = fields.Many2one('hr.ccaf', 'CCAF')
 
 
 class hr_payslip(models.Model):
@@ -170,11 +172,17 @@ class hr_payslip_run(models.Model):
         'hr.indicadores', 'Indicadores',
         states={'draft': [('readonly', False)]}, readonly=True, required=True)
 
+class hr_contract_type(models.Model):
+
+    _inherit = 'hr.contract.type'
+    _description = 'Contract Type'
+    codigo = fields.Char('Codigo')
+
 
 class hr_isapre(models.Model):
     _name = 'hr.isapre'
     _description = 'Isapres'
-
+    codigo = fields.Char('Codigo', required=True)
     name = fields.Char('Nombre', required=True)
     rut = fields.Char('RUT', required=True)
 
@@ -203,12 +211,18 @@ class hr_contract(models.Model):
         'Anticipo de Sueldo',
         help="Anticipo De Sueldo Realizado Contablemente")
     carga_familiar = fields.Integer(
-        'Carga Familiar',
-        help="Carga familiar para el cálculo de asignación familiar")
+        'Carga Familiar Simple',
+        help="Carga familiar para el cálculo de asignación familiar simple")
+    carga_familiar_maternal = fields.Integer(
+        'Carga Familiar Maternal',
+        help="Carga familiar para el cálculo de asignación familiar maternal")
+    carga_familiar_invalida = fields.Integer(
+        'Carga Familiar Inválida',
+        help="Carga familiar para el cálculo de asignación familiar inválida")            
     colacion = fields.Float('Asig. Colación', help="Colación")
     isapre_id = fields.Many2one('hr.isapre', 'ISAPRE')
-    isapre_cotizacion_uf = fields.Float(
-        'Cotización UF',  help="Cotización Pactada en UF")
+    isapre_cotizacion_uf = fields.Float('Cotización Pactada en UF',  help="Cotización Pactada")
+    isapre_fun = fields.Char('Número de FUN',  help="Indicar N° Contrato de Salud a Isapre")    
     movilizacion = fields.Float(
         'Asig. Movilización', help="Movilización")
     mutual_seguridad = fields.Boolean('Mutual Seguridad')
@@ -229,6 +243,7 @@ class hr_contract(models.Model):
     complete_name = fields.Char(related='employee_id.complete_name')
     last_name = fields.Char(related='employee_id.last_name')
     gratificacion_legal = fields.Boolean('Gratificación Legal Anual')
+    isapre_moneda= fields.Selection((('uf', 'UF'), ('clp', 'Pesos')), 'Tipo de Moneda', default="uf")
     aporte_voluntario_moneda= fields.Selection((('uf', 'UF'), ('clp', 'Pesos')), 'Tipo de Moneda', default="uf")
     seguro_complementario_moneda= fields.Selection((('uf', 'UF'), ('clp', 'Pesos')), 'Tipo de Moneda', default="uf")
 
@@ -246,22 +261,24 @@ class hr_contract(models.Model):
     }
 
 
+class hr_ccaf(models.Model):
+    _name = 'hr.ccaf'
+    _description = 'CCAF'
+    codigo = fields.Char('Codigo', required=True)
+    name = fields.Char('Nombre', required=True)
 
 
-
-
-
-
-
-
-
+class hr_mutualidad(models.Model):
+    _name = 'hr.mutual'
+    _description = 'Mutualidad'
+    codigo = fields.Char('Codigo', required=True)
+    name = fields.Char('Nombre', required=True)
 
 class hr_type_employee(models.Model):
     _name = 'hr.type.employee'
     _description = 'Tipo de Empleado'
     id_type = fields.Char('Código', required=True)
     name = fields.Char('Nombre', required=True)
-
 
 
 class hr_salary_rule(models.Model):
@@ -289,5 +306,8 @@ class hr_payslip_employees(models.TransientModel):
             context = dict(context, indicadores_id=indicadores_id)
         return super(hr_payslip_employees, self).compute_sheet(
             cr, uid, ids, context=context)
+
+
+
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
