@@ -38,7 +38,7 @@ Chilean Payroll Salary Rules.
     * Allow to configure Basic / Gross / Net Salary
     * Employee PaySlip
     * Allowance / Deduction
-    * Previred Chilean Indicators
+    * Chilean Indicators
     * Libro de Remuneraciones , ...
     Report
     """,
