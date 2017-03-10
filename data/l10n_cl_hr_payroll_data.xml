@@ -6,9 +6,6 @@
             <field name="partner_id" eval="False"/>						
         </record>
 
-
-
-
         <!-- Indicadores Inputs -->
 
         <record id="hr_indicadores_marzo" model="hr.indicadores">
