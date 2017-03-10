@@ -5,6 +5,8 @@ language: python
 python:
   - "2.7"
 
+install: "pip install -r requirements.txt"
+
 env:
 - VERSION="8.0" LINT_CHECK="1"
 - VERSION="8.0" ODOO_REPO="odoo/odoo" LINT_CHECK="0"
