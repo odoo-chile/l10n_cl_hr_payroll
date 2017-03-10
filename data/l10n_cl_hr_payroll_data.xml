@@ -12,13 +12,13 @@
             <field name="name">Mayo 2016</field>
             <field name="uf">25993.05</field>
             <field name="utm">45497</field>
-            <field name="asignacion_familiar_primer">262326</field>
-            <field name="asignacion_familiar_segundo">383156</field>
-            <field name="asignacion_familiar_tercer">597593</field>
+            <field name="family_assignment_primer">262326</field>
+            <field name="family_assignment_segundo">383156</field>
+            <field name="family_assignment_tercer">597593</field>
             <field name="caja_compensacion">0.60</field>
-            <field name="asignacion_familiar_monto_a">10269</field>
-            <field name="asignacion_familiar_monto_b">6302</field>
-            <field name="asignacion_familiar_monto_c">1992</field>
+            <field name="family_assignment_monto_a">10269</field>
+            <field name="family_assignment_monto_b">6302</field>
+            <field name="family_assignment_monto_c">1992</field>
             <field name="fonasa">6.40</field>
             <field name="mutual_seguridad">0.95</field>
             <field name="pensiones_ips">18.84</field>
@@ -378,7 +378,7 @@ else:
             <field name="code">ASIGFAM</field>
             <field name="category_id" ref="NOIMPO"/>
             <field name="condition_select">python</field>
-            <field name="condition_python">result = (contract.carga_familiar != 0) &amp; (payslip.indicadores_id.asignacion_familiar_tercer >= contract.wage) &amp; (contract.pension is False)</field>
+            <field name="condition_python">result = (contract.carga_familiar != 0) &amp; (payslip.indicadores_id.family_assignment_tercer >= contract.wage) &amp; (contract.pension is False)</field>
             <field name="amount_select">code</field>
             <field name="amount_python_compute">if worked_days.WORK100.number_of_days > 25:
  dias= 30	
@@ -388,12 +388,12 @@ else:
 
 if worked_days.WORK100.number_of_days == 0:
     result = 0
-elif payslip.indicadores_id.asignacion_familiar_primer >= categories.IMPONIBLE:
-    result = round(((payslip.indicadores_id.asignacion_familiar_monto_a*contract.carga_familiar) / 30) * (dias))
-elif payslip.indicadores_id.asignacion_familiar_segundo  >= categories.IMPONIBLE:
-    result = round(((payslip.indicadores_id.asignacion_familiar_monto_b*contract.carga_familiar) / 30) * (dias))
-elif payslip.indicadores_id.asignacion_familiar_tercer  >= categories.IMPONIBLE:
-    result = round(((payslip.indicadores_id.asignacion_familiar_monto_c*contract.carga_familiar) / 30) * (dias))</field>
+elif payslip.indicadores_id.family_assignment_primer >= categories.IMPONIBLE:
+    result = round(((payslip.indicadores_id.family_assignment_monto_a*contract.carga_familiar) / 30) * (dias))
+elif payslip.indicadores_id.family_assignment_segundo  >= categories.IMPONIBLE:
+    result = round(((payslip.indicadores_id.family_assignment_monto_b*contract.carga_familiar) / 30) * (dias))
+elif payslip.indicadores_id.family_assignment_tercer  >= categories.IMPONIBLE:
+    result = round(((payslip.indicadores_id.family_assignment_monto_c*contract.carga_familiar) / 30) * (dias))</field>
         </record>
 			
         <record id="hr_rule_9" model="hr.salary.rule">

@@ -43,20 +43,20 @@ class hr_indicadores_previsionales(models.Model):
     _description = 'Indicadores Previsionales'
 
     name = fields.Char('Nombre', required=True)
-    asignacion_familiar_primer = fields.Float(
+    family_assignment_primer = fields.Float(
         'Asignación Familiar Tramo 1', 
         help="Asig Familiar Primer Tramo")
-    asignacion_familiar_segundo = fields.Float(
+    family_assignment_segundo = fields.Float(
         'Asignación Familiar Tramo 2', 
         help="Asig Familiar Segundo Tramo")
-    asignacion_familiar_tercer = fields.Float(
+    family_assignment_tercer = fields.Float(
         'Asignación Familiar Tramo 3', 
         help="Asig Familiar Tercer Tramo")
-    asignacion_familiar_monto_a = fields.Float(
+    family_assignment_monto_a = fields.Float(
         'Monto Tramo Uno', help="Monto A")
-    asignacion_familiar_monto_b = fields.Float(
+    family_assignment_monto_b = fields.Float(
         'Monto Tramo Dos',  help="Monto B")
-    asignacion_familiar_monto_c = fields.Float(
+    family_assignment_monto_c = fields.Float(
         'Monto Tramo Tres',  help="Monto C")
     contrato_plazo_fijo_empleador = fields.Float(
         'Contrato Plazo Fijo Empleador', 

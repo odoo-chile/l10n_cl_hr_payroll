@@ -133,12 +133,12 @@
 					<h5>TRAMO</h5><h5>MONTO</h5><h5>REQUISITO DE RENTA</h5>
 					    </group>
 					    <group col="4"> 
-						<field name="asignacion_familiar_monto_a" string="A"> </field> 
-						<field name="asignacion_familiar_primer" string="Renta "> </field>
-						<field name="asignacion_familiar_monto_b" string="B"> </field>
-						<field name="asignacion_familiar_segundo"  string="Renta "> </field>
-						<field name="asignacion_familiar_monto_c" string="C"> </field>
-						<field name="asignacion_familiar_tercer"  string="Renta "> </field>
+						<field name="family_assignment_monto_a" string="A"> </field> 
+						<field name="family_assignment_primer" string="Renta "> </field>
+						<field name="family_assignment_monto_b" string="B"> </field>
+						<field name="family_assignment_segundo"  string="Renta "> </field>
+						<field name="family_assignment_monto_c" string="C"> </field>
+						<field name="family_assignment_tercer"  string="Renta "> </field>
 
 
 					    </group>
