@@ -240,7 +240,7 @@ class hr_contract(models.Model):
     # complete_name = fields.related('employee_id', 'complete_name', type='char', string='Name', store=True)
     # city_id = fields.Many2one('res.country.state.city', "CityID") 
     # city =  fields.Char(related='city_id.name', "City") 
-    complete_name = fields.Char(related='employee_id.complete_name')
+    complete_name = fields.Char(related='employee_id.firstname')
     last_name = fields.Char(related='employee_id.last_name')
     gratificacion_legal = fields.Boolean('Gratificación Legal Anual')
     isapre_moneda= fields.Selection((('uf', 'UF'), ('clp', 'Pesos')), 'Tipo de Moneda', default="uf")

@@ -21,6 +21,8 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
+from . import model
+from .init_hook import post_init_hook
 from . import hr_payroll
 from . import report
 from . import wizard
