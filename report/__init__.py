@@ -21,8 +21,6 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from . import report_hr_salary_book
-from . import report_payslip
 from . import amount_to_text_es
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
