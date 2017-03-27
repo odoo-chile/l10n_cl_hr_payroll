@@ -252,6 +252,8 @@
 
     <menuitem id="menu_cl_hr_payroll_configuration" name="Chilean Configuration" parent="hr_payroll.menu_hr_payroll_root" sequence="12"/>
 
+
+
         <act_window id="hr_indicadores_previsionales_action"
                     name="Indicadores"
                     res_model="hr.indicadores"

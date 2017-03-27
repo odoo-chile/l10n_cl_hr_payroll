@@ -30,7 +30,17 @@
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #
 ##############################################################################
-from openerp import models, fields
+import time
+from datetime import datetime, timedelta
+from dateutil import relativedelta
+
+import babel
+
+from odoo import api, fields, models, tools, _
+from odoo.exceptions import UserError, ValidationError
+from odoo.tools.safe_eval import safe_eval
+
+from odoo.addons import decimal_precision as dp
 
 # from datetime import date, datetime, timedelta
 
@@ -145,32 +155,28 @@ class hr_indicadores_previsionales(models.Model):
     ccaf_id = fields.Many2one('hr.ccaf', 'CCAF')
 
 
-class hr_payslip(models.Model):
-
-    '''
-    Pay Slip
-    '''
+class HrPayslip(models.Model):
     _inherit = 'hr.payslip'
     _description = 'Pay Slip'
-
-    indicadores_id = fields.Many2one(
-        'hr.indicadores', 'Indicadores',
-        states={'draft': [('readonly', False)]}, readonly=True, required=True)
-
-    def create(self, cr, uid, vals, context=None):
-        if 'indicadores_id' in context:
-            vals.update({'indicadores_id': context.get('indicadores_id')})
-        return super(hr_payslip, self).create(cr, uid, vals, context=context)
+    indicadores_id = fields.Many2one('hr.indicadores', string='Indicadores',
+        readonly=True, states={'draft': [('readonly', False)]},
+        help='Defines Previred Forecast Indicators')
 
 
-class hr_payslip_run(models.Model):
 
+    @api.model
+    def create(self, vals):
+        if 'indicadores_id' in self.env.context:
+            vals['indicadores_id'] = self.env.context.get('indicadores_id')
+        return super(HrPayslip, self).create(vals)
+
+
+
+class HrPayslipRun(models.Model):
     _inherit = 'hr.payslip.run'
     _description = 'Payslip Run'
 
-    indicadores_id = fields.Many2one(
-        'hr.indicadores', 'Indicadores',
-        states={'draft': [('readonly', False)]}, readonly=True, required=True)
+    indicadores_id = fields.Many2one('hr.indicadores', 'Indicadores', states={'draft': [('readonly', False)]}, readonly=True, required=True)
 
 class hr_contract_type(models.Model):
 
