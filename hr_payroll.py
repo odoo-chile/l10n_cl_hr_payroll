@@ -295,23 +295,16 @@ class hr_salary_rule(models.Model):
     date_end = fields.Date('Fecha Fin',  help="Fecha del fin de la regla salarial")
 
 
-class hr_payslip_employees(models.TransientModel):
 
+class HrPayslipEmployees(models.TransientModel):
     _inherit = 'hr.payslip.employees'
 
-    def compute_sheet(self, cr, uid, ids, context=None):
-        run_pool = self.pool.get('hr.payslip.run')
-        if context is None:
-            context = {}
-        if context.get('active_id'):
-            run_data = run_pool.read(
-                cr, uid, context['active_id'], ['indicadores_id'])
-        indicadores_id = run_data.get('indicadores_id')
-        indicadores_id = indicadores_id and indicadores_id[0] or False
-        if indicadores_id:
-            context = dict(context, indicadores_id=indicadores_id)
-        return super(hr_payslip_employees, self).compute_sheet(
-            cr, uid, ids, context=context)
+    @api.multi
+    def compute_sheet(self):
+        indicadores_id = False
+        if self.env.context.get('active_id'):
+            indicadores_id = self.env['hr.payslip.run'].browse(self.env.context.get('active_id')).indicadores_id.id
+        return super(HrPayslipEmployees, self.with_context(indicadores_id=indicadores_id)).compute_sheet()
 
 
 
