@@ -90,38 +90,9 @@
             </field>
         </record>
 
-    <!-- Register Contribution View -->
-
-        
-        <record id="hr_contribution_register_form_inherit" model="ir.ui.view">
-            <field name="name">hr.contribution.register.form.inherit</field>
-            <field name="model">hr.contribution.register</field>
-            <field name="inherit_id" ref="hr_payroll.hr_contribution_register_form"/>
-            <field name="arch" type="xml">
-                <field name="company_id" position="after"><field name="partner_id"/>
-
-                </field>
-            </field>
-        </record>
-
-    <!-- Payslip Run View -->
-
-        
-        <record id="hr_payslip_run_form_inherit5" model="ir.ui.view">
-            <field name="name">hr.payslip.run.form.inherit5</field>
-            <field name="model">hr.payslip.run</field>
-            <field name="inherit_id" ref="hr_payroll.hr_payslip_run_form"/>
-            <field name="arch" type="xml">
-                <field name="credit_note" position="before"><field name="indicadores_id"/>
-
-                </field>
-            </field>
-        </record>
-
-
 
     <!-- Menu View -->
-<menuitem id="menu_cl_hr_payroll_indicators" name="Payroll Indicators" parent="hr_payroll.menu_hr_payroll_root" sequence="10"/>
+    <menuitem id="menu_cl_hr_payroll_indicators" name="Payroll Indicators" parent="hr_payroll.menu_hr_payroll_root" sequence="10"/>
 
     <menuitem id="menu_cl_hr_payroll_reports" name="Reports" parent="hr_payroll.menu_hr_payroll_root" sequence="11"/>
 
@@ -184,23 +155,5 @@
                   action="hr_mutual_action"
                   sequence="13"
         />       
-
-
-
-        <act_window id="hr_afp_action"
-                    name="Fondos de Pensión"
-                    res_model="hr.afp"
-                    view_type="form"
-                    view_mode="tree,form"
-        />
-
-        <menuitem id="hr_afp_menu"
-                  parent="menu_cl_hr_payroll_configuration"
-                  action="hr_afp_action"
-                  sequence="14"
-        />
-
-
-
     </data>
 </openerp>
