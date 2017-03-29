@@ -1,70 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-	 <record id="hr_contract_chile_view" model="ir.ui.view">	
-            <field name="name">hr.contract.chile.view</field>	
-            <field name="model">hr.contract</field>	
-            <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>	
-            <field name="arch" type="xml">	
-
-
-            	<field name="wage" position="after">
-            		<field name="otros_imp" string="Otros Imponible"/>
-            		<field name="otro_no_imp" string="Otros No Imponible"/>
-            		<field name="colacion" string="Asig. de Colación"/>
-            		<field name="movilizacion" string="Asig. de Movilización"/>
-            		<field name="viatico_santiago" string="Asig. de Viático"/>
-                    <field name="gratificacion_legal" string="Gratificación Legal Anual"/>
-            		<field name="carga_familiar"/>
-                    <field name="carga_familiar_maternal"/>
-                    <field name="carga_familiar_invalida"/>
-		        </field>	
- 
-            	<group name="salary_and_advantages" position="after">	
-			<group col="3" string="Descuentos"> 
-			<field name="pension"/><label string="" nolabel="1"  />
-			<field name="afp_id" string="AFP" attrs="{'invisible': [('pension', '!=', False)],'required': [('pension', '==', False)]}"/><label string="" nolabel="1"  />
-			<field name="isapre_id" string="Salud" required="1"/><label string="" nolabel="1" />
-			<field name="isapre_cotizacion_uf" digits="(14, 5)" string="Cotización Pactada en UF"  attrs="{'invisible': [('isapre_id', '=', 1)]}"/><label string="" nolabel="1" />
-            <field name="isapre_fun" string="Contrato Isapre FUN" attrs="{'invisible': [('isapre_id', '=', 1)]}"/><label string="" nolabel="1" />
-            <field name="seguro_complementario" string="Seguro Complementario"/><field name="seguro_complementario_moneda" nolabel="1" />
-
-			<field name="aporte_voluntario" string="Aporte Voluntario"/><field name="aporte_voluntario_moneda" nolabel="1" />
-			<field name="mutual_seguridad"/><label string="" nolabel="1" />
-			<field name="anticipo_sueldo"/><label string="" nolabel="1" />
-			</group>
-            	</group>
-
-
-                <field name="working_hours" position="replace">
-                    <field name="working_hours" required="1"/>
-                </field>
-
-                <field name="type_id" position="replace">
-                    <field name="type_id" select="3"/>
-                </field>
-
-
-
-
-             </field>	
- </record>	
-
-
-      <record id="hr_contract_view_tree_inherit_l10n_lv_hr" model="ir.ui.view">
-        <field name="name">hr.contract.view.tree.inherit.l10n</field>
-        <field name="model">hr.contract</field>
-        <field name="inherit_id" ref="hr_contract.hr_contract_view_tree"/>
-        <field name="arch" type="xml">
-          <field name="employee_id" position="replace">
-            <field name="complete_name"/>
-          </field>          
-        </field>
-      </record>
-
-
-
-
         <record id="hr_indicadores_previsionales_view" model="ir.ui.view">
             <field name="name">hr.indicadores.view</field>
             <field name="model">hr.indicadores</field>
@@ -78,33 +14,27 @@
 				         <notebook>
 				           <page string="Previred" name="previred">
 								<table > 
-							    
 								    <tr> 
 								    	<td>
-										
 										    <group col="2" name="uf" string="Valor UF"> 
-											<field name="uf" string="UF Previred"> </field>
+											     <field name="uf" string="UF Previred"> </field>
 										    </group>
 										    <group col="2" name="utm" string="Otros Valores"> 
 											    <field name="utm" > </field><field name="uta"  />
 											</group>   
-										
 										    <group col="2" name="top" string="Rentas Topes Imponibles">
 										        <field name="tope_imponible_afp"> </field>
-											<field name="tope_imponible_ips"> </field>
-											<field name="tope_imponible_seguro_cesantia"> </field>
+                                                <field name="tope_imponible_ips"> </field>
+                                                <field name="tope_imponible_seguro_cesantia"> </field>
 										    </group>   
-										
 										    <group col="2" name="minimum_rent" string="Rentas Mínimas Imponibles">
 												<field name="sueldo_minimo"> </field>
 												<field name="sueldo_minimo_otro"> </field>
 										    </group> 
-										
 										    <group col="2" name="voluntary_saving" string="Ahorro Previsional Voluntario">
 												<field name="tope_anual_apv"> </field>
 												<field name="tope_mensual_apv"> </field>
 										    </group>  
-										
 										    <group col="2" name="deposit_agreement" string="Depósito Convenido">
 												<field name="deposito_convenido"> </field>
 										    </group> 										
@@ -114,16 +44,8 @@
 												<field name="contrato_plazo_indefinido_empleador"> </field>
 												<field name="contrato_plazo_indefinido_empleador_otro"> </field>
 										    </group>  
-				  
-										
 									 </td>
 									 <td>
-								    
-								
-
-
-									 
-								
 				                           <group col="4" name="mandatory_quotations" string="Tasa Cotización Obligatorio AFP"> 
 				                                <field name="tasa_afp_capital"/><field name="tasa_sis_capital" nolabel="1"/><field name="tasa_independiente_capital" nolabel="1"/>
 				                                <field name="tasa_afp_cuprum"/><field name="tasa_sis_cuprum" nolabel="1"/><field name="tasa_independiente_cuprum" nolabel="1"/>  
@@ -132,10 +54,6 @@
 				                                <field name="tasa_afp_provida"/><field name="tasa_sis_provida" nolabel="1"/><field name="tasa_independiente_provida" nolabel="1"/>
 				                                <field name="tasa_afp_modelo"/> <field name="tasa_sis_modelo" nolabel="1"/><field name="tasa_independiente_modelo" nolabel="1"/>
 				 					      </group>
-									
-								
-								
-
 
 									    <group col="3" name="family_bonus" string="Asignación Familiar"></group>
 
@@ -149,11 +67,7 @@
 								       </group>
 
 								    </td></tr>
-								</table>
-
-								
-							
-				
+								</table>				
  						</page>
  						  <page string="Instituciones Relacionadas">
                             <group col="2">
@@ -170,25 +84,11 @@
 								</group>
                             </group>
                         </page>
-
-
                     </notebook>
                     </sheet>
                 </form>
             </field>
         </record>
-
-   <record model="ir.ui.view" id="view_hr_payslip_inherit_form4">
-            <field name="name">hr.payslip.inherit.form4</field>
-            <field name="model">hr.payslip</field>
-            <field name="inherit_id" ref="hr_payroll.view_hr_payslip_form"/>
-            <field name="arch" type="xml">
-                <field name="paid" position="after">
-                    <field name="indicadores_id"/>
-                </field>
-            </field>
-        </record>
-
 
     <!-- Register Contribution View -->
 
@@ -219,31 +119,6 @@
         </record>
 
 
-
-        <record id="hr_afp_form" model="ir.ui.view">
-            <field name="name">hr.afp.form</field>
-            <field name="model">hr.afp</field>
-            <field name="arch" type="xml">
-                <form string="AFP">
-		    <table class="table-condensed" width="100%">
-			<thead>
-			    <tr><td>
-				<div class="oe_title">FONDOS DE PENSION</div>
-				<group col="2">
-                                    <field name="codigo" string="Codigo"></field>
-                                    <field name="rut" string="RUT"></field>
-                                    <field name="name"></field>
-                                    <field name="rate"></field>
-                                    <field name="sis"></field>
-                                    <field name="independiente"></field>
-				</group>
-			     </td></tr>
-                        </thead>
-		    </table>
-
-                </form>
-            </field>
-        </record>
 
     <!-- Menu View -->
 <menuitem id="menu_cl_hr_payroll_indicators" name="Payroll Indicators" parent="hr_payroll.menu_hr_payroll_root" sequence="10"/>
