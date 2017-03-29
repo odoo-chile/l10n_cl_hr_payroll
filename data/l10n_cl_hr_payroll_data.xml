@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>						
 <openerp>						
     <data>						
-        <record id="contrib_register_employees" model="hr.contribution.register">						
-            <field name="name">Employees</field>						
-            <field name="partner_id" eval="False"/>						
-        </record>
-
-
-
 
         <!-- Indicadores Inputs -->
 
@@ -58,6 +51,19 @@
             <field name="tope_anual_apv">600</field>
             <field name="tope_mensual_apv">50</field>
         </record>
+
+        <!-- CONTRIBUTION REGISTER     -->						
+        <record id="contrib_register_employees" model="hr.contribution.register">						
+            <field name="name">Employees</field>						
+            <field name="partner_id" eval="False"/>						
+        </record>
+            <record id="contrib_register_previred" model="hr.contribution.register">
+            <field name="name">Previred</field>
+        </record>
+        <record id="contrib_register_sii" model="hr.contribution.register">
+            <field name="name">SII</field>
+        </record>	
+
 
         <!-- ISAPRES     -->
 
@@ -295,23 +301,7 @@
             <field name="name">Sueldo Empresarial</field>
             <field name="codigo">1</field>
         </record>
-
-
-     <!-- Tipos de Contribuyentes -->
-
-
-        <record id="contrib_register_previred" model="hr.contribution.register">
-            <field name="name">Previred</field>
-        </record>
-
-        <record id="contrib_register_sii" model="hr.contribution.register">
-            <field name="name">SII</field>
-        </record>
-
-
-
-
-						
+				
        <!-- Salary Rules -->						
         <record id="hr_rule_1" model="hr.salary.rule">						
             <field name="name">SUELDO BASE</field>						
