@@ -82,12 +82,4 @@ class hr_contract(models.Model):
     aporte_voluntario_moneda= fields.Selection((('uf', 'UF'), ('clp', 'Pesos')), 'Tipo de Moneda', default="uf")
     seguro_complementario_moneda= fields.Selection((('uf', 'UF'), ('clp', 'Pesos')), 'Tipo de Moneda', default="uf")
 
-    #Valor por defecto de variable definida
-    def _get_type(self, cr, uid, context=None):
-        type_ids = self.pool.get('hr.contract.type').search(cr, uid, [('name', '=', 'Plazo Indefinido')])
-        return type_ids and type_ids[0] or False
-
-    _defaults = {
-
-        'type_id': _get_type,
-    }
+    #COLOCAR PLAZON indefinidico por defecto Valor get_type
