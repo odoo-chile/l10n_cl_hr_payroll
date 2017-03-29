@@ -23,7 +23,7 @@
 ##############################################################################
 from . import model
 from .init_hook import post_init_hook
-from . import hr_payroll
+#from . import hr_payroll
 from . import report
 from . import wizard
 from . import model

@@ -13,8 +13,8 @@ Customization for Chilean Payroll
 <img width="200" alt="Logo BMYA" src="http://crm.blancomartin.cl/index.php?entryPoint=image&name=c82ab43f-e8dd-b2fa-25ff-56017f69d116" />
 </p>
 **Blanco Martin & Asociados EIRL** - http://blancomartin.cl
- - Nelson Ramírez
- - Daniel Blanco
+ - Nelson Ramírez <info@nelsonramirez.com>
+ - Daniel Blanco <daniel@blancomartin.cl>
 
  
 Odoo - HR Payroll
@@ -27,5 +27,6 @@ Personalización para pago de Nómina en Chile
 <img width="200" alt="Logo BMYA" src="http://crm.blancomartin.cl/index.php?entryPoint=image&name=c82ab43f-e8dd-b2fa-25ff-56017f69d116" />
 </p>
 **Blanco Martin & Asociados EIRL** - http://blancomartin.cl
- - Nelson Ramírez
- - Daniel Blanco
+ - Nelson Ramírez <info@nelsonramirez.com>
+ - Daniel Blanco <daniel@blancomartin.cl>
+

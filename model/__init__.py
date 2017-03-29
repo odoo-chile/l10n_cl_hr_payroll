@@ -2,7 +2,7 @@
 ##############################################################################
 # Chilean Payroll
 # Odoo / OpenERP, Open Source Management Solution
-# Copyright (c) 2015 Blanco Martin y Asociados
+# Copyright (c) 2017 Blanco Martin y Asociados
 # Nelson Ramírez Sánchez - Daniel Blanco
 # http://blancomartin.cl
 #
@@ -31,3 +31,15 @@
 #
 ##############################################################################
 from . import hr_employee
+from . import hr_payslip
+from . import hr_afp
+from . import hr_contract_type
+from . import hr_indicadores_previsionales
+from . import hr_isapre
+from . import hr_payslip_run
+from . import hr_payslip_employees
+from . import hr_salary_rule
+from . import hr_type_employee
+from . import hr_mutualidad
+from . import hr_ccaf
+from . import hr_contract
