@@ -4,7 +4,8 @@
 
         <!-- Empleado Inputs -->
         <record id="hr_employee_data_demo" model="hr.employee">
-            <field name="name">Nelson Ramirez</field>
+            <field name="name">Nelson</field>
+            <field name="last_name">Ramírez</field>
             <field name="identification_id">24625430-K</field>
         </record>
 

@@ -7,7 +7,7 @@ UPDATE_PARTNER_FIELDS = ['name', 'user_id', 'address_home_id']
 class HrEmployee(models.Model):
     _inherit = 'hr.employee'
     firstname = fields.Char("Firstname")
-    last_name = fields.Char("last_name", required=True)
+    last_name = fields.Char("Last Name")
     middle_name = fields.Char("'Second Name", help='Second employee name')
     mothers_name = fields.Char("'Second Last Name", help='Second employee last name')
 
