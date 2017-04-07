@@ -8,7 +8,7 @@
                 <div class="text-center">
 	                <h2>Libro de Remuneraciones</h2>
 	                <p>
-	                    Fecha <u><span t-esc="data['form']['end_date'][1]"/></u> 
+	                    Fecha <u><span t-esc="formatLang(data['form']['end_date'], date=True)"/></u> 
 	                    
 
 	                </p>
