@@ -26,7 +26,7 @@ Daniel Blanco''',
     'website': 'http://blancomartin.cl',
     'depends': ['hr_payroll'],
     'license': 'AGPL-3',
-    'version': '9.0.0.3',
+    'version': '10.0.1',
     'description': """
 Chilean Payroll Salary Rules.
 ============================
@@ -36,9 +36,10 @@ Chilean Payroll Salary Rules.
     * New payslip report
     * Employee Contracts
     * Allow to configure Basic / Gross / Net Salary
+    * Attendance, Holidays and Sick Licence   
     * Employee PaySlip
     * Allowance / Deduction
-    * Previred Chilean Indicators
+    * Pention Chilean Indicators
     * Libro de Remuneraciones , ...
     Report
     """,
