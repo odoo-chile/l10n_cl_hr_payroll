@@ -53,6 +53,8 @@ Chilean Payroll Salary Rules.
         'views/hr_payslip_run_view.xml',
         'views/hr_contribution_register_view.xml',
         'views/report_payslip.xml',
+        'views/report_hrsalarybymonth.xml',
+        'views/hr_salary_books.xml',
         'data/l10n_cl_hr_payroll_data.xml',
     ],
     'demo': ['demo/l10n_cl_hr_payroll_demo.xml'],
