@@ -8,8 +8,8 @@ class HrEmployee(models.Model):
     _inherit = 'hr.employee'
     firstname = fields.Char("Firstname")
     last_name = fields.Char("Last Name")
-    middle_name = fields.Char("'Second Name", help='Second employee name')
-    mothers_name = fields.Char("'Second Last Name", help='Second employee last name')
+    middle_name = fields.Char("Middle Name", help='Employees middle name')
+    mothers_name = fields.Char("Mothers Name", help='Employees mothers name')
 
 
 
