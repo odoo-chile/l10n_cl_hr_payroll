@@ -16,11 +16,11 @@ class HrEmployee(models.Model):
 
 
     @api.multi
-    @api.onchange('firstname', 'last_name')
+    @api.onchange('firstname', 'mothers_name', 'middle_name' , 'last_name')
     def get_name(self):
         for employee in self:
             if employee.firstname and employee.last_name:
-                employee.name = u" ".join((p for p in (self.last_name, self.firstname) if p))
+                employee.name = u" ".join((p for p in (self.last_name, self.mothers_name, self.firstname, self.middle_name) if p))
 
 
 
@@ -29,6 +29,6 @@ class HrEmployee(models.Model):
         """Compute the 'name' field according to splitted data.
         You can override this method to change the order of lastname and
         firstname the computed name"""
-        return u" ".join((p for p in (last_name, firstname) if p))
+        return u" ".join((p for p in (last_name, mothers_name, firstname, middle_name) if p))
 
 

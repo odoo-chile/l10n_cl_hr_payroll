@@ -31,10 +31,8 @@
                           <tr>
                               <td><span t-field="o.employee_id.identification_id"/></td>
                               <td>
-                                <span t-field="o.employee_id.name"/> 
-                                <span t-field="o.employee_id.middle_name"/> 
-                                <span t-field="o.employee_id.last_name"/> 
-                                <span t-field="o.employee_id.mothers_name"/></td>
+                                <span t-field="o.employee_id.name"/>
+                              </td>
                               <td>001</td>
                           </tr>
                           <tr>

@@ -17,12 +17,19 @@
                  <field name="firstname"/>
             </xpath>
             <xpath expr="//field[@name='name']/.." position="after">
+                <label for="middle_name" class="oe_edit_only"/>
+                	<h1>
+                    	<field name="middle_name"/>
+                 	</h1>
                 <label for="last_name" class="oe_edit_only"/>
-                <h1>
-                    <field name="last_name"/>
-                 </h1>
+                	<h1>
+                    	<field name="last_name"/>
+                 	</h1>
+                <label for="mothers_name" class="oe_edit_only"/>
+                	<h1>
+                    	<field name="mothers_name"/>
+                 	</h1>
             </xpath>
         </field>
     </record>
-
 </odoo>
