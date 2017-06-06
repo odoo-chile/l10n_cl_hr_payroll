@@ -3,7 +3,7 @@
 #
 #    Odoo, Open Source Management Solution Chilean Payroll
 #
-#    Copyright (c) 2015 Blanco Martin y Asociados - Nelson Ramirez Sanchez
+#    Copyright (c) 2017 Blanco Martin y Asociados - Nelson Ramirez Sanchez
 #    Daniel Blanco
 #    http://blancomartin.cl
 #
@@ -22,6 +22,8 @@
 #
 ##############################################################################
 from . import hr_form_employee_book
+from . import wizard_export_csv_previred
+
 
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
