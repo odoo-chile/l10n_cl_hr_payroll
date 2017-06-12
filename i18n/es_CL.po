@@ -763,7 +763,7 @@ msgstr "Indicadores Previsionales"
 #. module: l10n_cl_hr_payroll
 #: model:ir.model,name:l10n_cl_hr_payroll.model_hr_payslip_run
 msgid "Payslip Batches"
-msgstr "Procesamientos de liquidaciones"
+msgstr "Procesar liquidaciones"
 
 #. module: l10n_cl_hr_payroll
 #: model:ir.model.fields,field_description:l10n_cl_hr_payroll.field_hr_contract_pension
@@ -2254,7 +2254,7 @@ msgstr "Liquidaciones"
 #: model:ir.ui.view,arch_db:hr_payroll.hr_payslip_run_form
 #: model:ir.ui.view,arch_db:hr_payroll.hr_payslip_run_tree
 msgid "Payslips Batches"
-msgstr "Procesamientos de liquidaciones"
+msgstr "Procesar liquidaciones"
 
 #. module: hr_payroll
 #: model:ir.ui.view,arch_db:hr_payroll.view_hr_payslip_by_employees
@@ -5037,4 +5037,107 @@ msgstr "report.hr_holidays.report_holidayssummary"
 msgid "to"
 msgstr "a"
 
+#. module: hr_payroll_account
+#: model:ir.ui.view,arch_db:hr_payroll_account.hr_contract_form_inherit
+#: model:ir.ui.view,arch_db:hr_payroll_account.hr_salary_rule_form_inherit
+msgid "Accounting"
+msgstr "Contabilidad"
+
+#. module: hr_payroll_account
+#: model:ir.model.fields,field_description:hr_payroll_account.field_hr_payslip_move_id
+msgid "Accounting Entry"
+msgstr "Comprobante contable"
+
+#. module: hr_payroll_account
+#: code:addons/hr_payroll_account/hr_payroll_account.py:151
+#: code:addons/hr_payroll_account/hr_payroll_account.py:166
+#, python-format
+msgid "Adjustment Entry"
+msgstr "Comprobante de ajuste"
+
+#. module: hr_payroll_account
+#: model:ir.model.fields,field_description:hr_payroll_account.field_hr_contract_analytic_account_id
+#: model:ir.model.fields,field_description:hr_payroll_account.field_hr_salary_rule_analytic_account_id
+msgid "Analytic Account"
+msgstr "Cuenta analítica"
+
+#. module: hr_payroll_account
+#: model:ir.model,name:hr_payroll_account.model_hr_contract
+msgid "Contract"
+msgstr "Contrato"
+
+#. module: hr_payroll_account
+#: model:ir.model.fields,field_description:hr_payroll_account.field_hr_salary_rule_account_credit
+msgid "Credit Account"
+msgstr "Cuenta acreedora"
+
+#. module: hr_payroll_account
+#: model:ir.model.fields,field_description:hr_payroll_account.field_hr_payslip_date
+msgid "Date Account"
+msgstr "Fecha de la Cuenta"
+
+#. module: hr_payroll_account
+#: model:ir.model.fields,field_description:hr_payroll_account.field_hr_salary_rule_account_debit
+msgid "Debit Account"
+msgstr "Cuenta deudora"
+
+#. module: hr_payroll_account
+#: model:ir.model,name:hr_payroll_account.model_hr_payslip_employees
+msgid "Generate payslips for all selected employees"
+msgstr "Generar las liquidaciones para todos los empleados seleccionados"
+
+#. module: hr_payroll_account
+#: model:ir.model.fields,help:hr_payroll_account.field_hr_payslip_date
+msgid "Keep empty to use the period of the validation(Payslip) date."
+msgstr "Deje en blanco para usar el período de la fecha de validación de la nómina"
+
+#. module: hr_payroll_account
+#: model:ir.model,name:hr_payroll_account.model_hr_payslip
+msgid "Pay Slip"
+msgstr "Liquidación"
+
+#. module: hr_payroll_account
+#: model:ir.model,name:hr_payroll_account.model_hr_payslip_run
+msgid "Payslip Batches"
+msgstr "Procesar liquidaciones"
+
+#. module: hr_payroll_account
+#: model:ir.model,name:hr_payroll_account.model_hr_payslip_line
+msgid "Payslip Line"
+msgstr "Línea de liquidación"
+
+#. module: hr_payroll_account
+#: code:addons/hr_payroll_account/hr_payroll_account.py:102
+#, python-format
+msgid "Payslip of %s"
+msgstr "Liquidación de %s"
+
+#. module: hr_payroll_account
+#: model:ir.model.fields,field_description:hr_payroll_account.field_hr_contract_journal_id
+#: model:ir.model.fields,field_description:hr_payroll_account.field_hr_payslip_journal_id
+#: model:ir.model.fields,field_description:hr_payroll_account.field_hr_payslip_run_journal_id
+msgid "Salary Journal"
+msgstr "Diario Contable"
+
+#. module: hr_payroll_account
+#: model:ir.model.fields,field_description:hr_payroll_account.field_hr_salary_rule_account_tax_id
+msgid "Tax"
+msgstr "Impuesto"
+
+#. module: hr_payroll_account
+#: code:addons/hr_payroll_account/hr_payroll_account.py:149
+#, python-format
+msgid "The Expense Journal \"%s\" has not properly configured the Credit Account!"
+msgstr "¡La cuenta acreedora del diario de gastos \"%s\" no se ha configurado correctamente!"
+
+#. module: hr_payroll_account
+#: code:addons/hr_payroll_account/hr_payroll_account.py:164
+#, python-format
+msgid "The Expense Journal \"%s\" has not properly configured the Debit Account!"
+msgstr "¡La cuenta deudora del diario de gastos \"%s\" no se ha configurado correctamente!"
+
+#. module: hr_payroll_account
+#: model:ir.model,name:hr_payroll_account.model_hr_salary_rule
+msgid "hr.salary.rule"
+msgstr "Regla salarial"
 
