@@ -466,7 +466,7 @@ msgstr "Full name of employee, conformed by: Last             name + Second last
 #. module: l10n_cl_hr_payroll
 #: model:ir.model,name:l10n_cl_hr_payroll.model_hr_payslip_employees
 msgid "Generate payslips for all selected employees"
-msgstr "Generar las nóminas para todos los empleados seleccionados"
+msgstr "Generar las liquidaciones para todos los empleados seleccionados"
 
 #. module: l10n_cl_hr_payroll
 #: model:ir.ui.view,arch_db:l10n_cl_hr_payroll.report_hrsalarybymonth
@@ -763,7 +763,7 @@ msgstr "Indicadores Previsionales"
 #. module: l10n_cl_hr_payroll
 #: model:ir.model,name:l10n_cl_hr_payroll.model_hr_payslip_run
 msgid "Payslip Batches"
-msgstr "Procesamientos de Nóminas"
+msgstr "Procesamientos de liquidaciones"
 
 #. module: l10n_cl_hr_payroll
 #: model:ir.model.fields,field_description:l10n_cl_hr_payroll.field_hr_contract_pension
@@ -1223,10 +1223,10 @@ msgid ""
 "* If the payslip is confirmed then status is set to 'Done'.            \n"
 "* When user cancel payslip the status is 'Rejected'."
 msgstr ""
-"Cuando se crea una nómina su estado es 'Borrador'.\n"
-"Si la nómina está verificandose, su estado es 'Esperando'.\n"
-"Si la nómina está confimada su estado pasa a 'Hecho'\n"
-"Cuando se cancela una nómina su estado es 'Rechazado'"
+"Cuando se crea una liquidación su estado es 'Borrador'.\n"
+"Si la liquidación está verificandose, su estado es 'Esperando'.\n"
+"Si la liquidación está confimada su estado pasa a 'Hecho'\n"
+"Cuando se cancela una liquidación su estado es 'Rechazado'"
 
 #. module: hr_payroll
 #: model:ir.ui.view,arch_db:hr_payroll.report_payslip
@@ -1429,7 +1429,7 @@ msgid ""
 "A contribution register is a third party involved in the salary\n"
 "                payment of the employees. It can be the social security, the\n"
 "                estate or anyone that collect or inject money on payslips."
-msgstr "Un registro de contribución es un tercero envuelto en el pago de salarios de los empleados. Puede ser la seguridad social, el estado o cualquiera que recauda o inyecta dinero en las nóminas."
+msgstr "Un registro de contribución es un tercero envuelto en el pago de salarios de los empleados. Puede ser la seguridad social, el estado o cualquiera que recauda o inyecta dinero en las liquidaciones."
 
 #. module: hr_payroll
 #: model:ir.ui.view,arch_db:hr_payroll.view_hr_payslip_form
@@ -1885,7 +1885,7 @@ msgstr "Generar liquidaciones"
 #. module: hr_payroll
 #: model:ir.model,name:hr_payroll.model_hr_payslip_employees
 msgid "Generate payslips for all selected employees"
-msgstr "Generar las nóminas para todos los empleados seleccionados"
+msgstr "Generar las liquidaciones para todos los empleados seleccionados"
 
 #. module: hr_payroll
 #: model:ir.ui.view,arch_db:hr_payroll.view_hr_payslip_filter
@@ -1917,7 +1917,7 @@ msgstr "RUT"
 #. module: hr_payroll
 #: model:ir.model.fields,help:hr_payroll.field_hr_payslip_run_credit_note
 msgid "If its checked, indicates that all payslips generated from here are refund payslips."
-msgstr "Si está marcada, indica que todas las nóminas generadas desde aquí son nóminas reembolso."
+msgstr "Si está marcada, indica que todas las liquidaciones generadas desde aquí son liquidaciones reembolso."
 
 #. module: hr_payroll
 #: model:ir.model.fields,help:hr_payroll.field_hr_payslip_line_active
@@ -1928,7 +1928,7 @@ msgstr "Si el campo activo se establece a falso, se puede ocultar la regla salar
 #. module: hr_payroll
 #: model:ir.model.fields,help:hr_payroll.field_hr_payslip_credit_note
 msgid "Indicates this payslip has a refund of another"
-msgstr "Indica que esta nómina incluye un abono de otra"
+msgstr "Indica que esta liquidación incluye un abono de otra"
 
 #. module: hr_payroll
 #: model:ir.ui.view,arch_db:hr_payroll.hr_salary_rule_form
@@ -1946,7 +1946,7 @@ msgstr "Entradas"
 #. module: hr_payroll
 #: model:ir.ui.view,arch_db:hr_payroll.view_hr_payroll_configuration
 msgid "Install your country's payroll"
-msgstr "Instale las nóminas de su país"
+msgstr "Instale las liquidaciones de su país"
 
 #. module: hr_payroll
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_payslip_note
@@ -2025,7 +2025,7 @@ msgstr "Última actualización en"
 #. module: hr_payroll
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_payroll_config_settings_module_hr_payroll_account
 msgid "Link your payroll to accounting system"
-msgstr "Enlaza su nómina con el sistema contable"
+msgstr "Enlaza su liquidación con el sistema contable"
 
 #. module: hr_payroll
 #: model:ir.model.fields,help:hr_payroll.field_hr_salary_rule_category_parent_id
@@ -2447,7 +2447,7 @@ msgstr "Reglas salariales"
 #: code:addons/hr_payroll/hr_payroll.py:700
 #, python-format
 msgid "Salary Slip of %s for %s"
-msgstr "Nómina salarial de %s para %s"
+msgstr "liquidación salarial de %s para %s"
 
 #. module: hr_payroll
 #: model:ir.model,name:hr_payroll.model_hr_payroll_structure
@@ -2582,7 +2582,7 @@ msgstr "Se usará para calcular el valor de los campos %s; en general se utiliza
 #. module: hr_payroll
 #: model:ir.ui.view,arch_db:hr_payroll.view_hr_payslip_by_employees
 msgid "This wizard will generate payslips for all selected employee(s) based on the dates and credit note specified on Payslips Run."
-msgstr "Este asistente generará las nóminas para todos los empleados seleccionados basado en las fechas y abonos especificados en la ejecución de nóminas."
+msgstr "Este asistente generará las liquidaciones para todos los empleados seleccionados basado en las fechas y abonos especificados en la ejecución de liquidaciones."
 
 #. module: hr_payroll
 #: model:ir.model.fields,field_description:hr_payroll.field_hr_payslip_line_total
@@ -2606,7 +2606,7 @@ msgstr "Se utiliza para organizar la secuencia de cálculo"
 #: model:ir.model.fields,help:hr_payroll.field_hr_payslip_line_appears_on_payslip
 #: model:ir.model.fields,help:hr_payroll.field_hr_salary_rule_appears_on_payslip
 msgid "Used to display the salary rule on payslip."
-msgstr "Se usa para mostrar la regla de salario en la nómina."
+msgstr "Se usa para mostrar la regla de salario en la liquidación."
 
 #. module: hr_payroll
 #: selection:hr.payslip,state:0
@@ -2667,13 +2667,13 @@ msgstr "Rango de condición erróneo para la regla de salario %s (%s)."
 #: code:addons/hr_payroll/hr_payroll.py:334
 #, python-format
 msgid "You cannot delete a payslip which is not draft or cancelled!"
-msgstr "¡No puede eliminar una nómina que no esté en estado borrador o cancenlado!"
+msgstr "¡No puede eliminar una liquidación que no esté en estado borrador o cancenlado!"
 
 #. module: hr_payroll
 #: code:addons/hr_payroll/wizard/hr_payroll_payslips_by_employees.py:35
 #, python-format
 msgid "You must select employee(s) to generate payslip(s)."
-msgstr "Debe seleccionar un empleado(s) para crear la(s) nómina(s)."
+msgstr "Debe seleccionar un empleado(s) para crear la(s) liquidación(s)."
 
 #. module: hr_payroll
 #: code:addons/hr_payroll/hr_payroll.py:965
@@ -4195,7 +4195,7 @@ msgstr "Desde la fecha"
 #. module: hr_holidays
 #: model:ir.model.fields,help:hr_holidays.field_hr_holidays_payslip_status
 msgid "Green this button when the leave has been taken into account in the payslip."
-msgstr "Seleccione esta casilla cuando la ausencia haya sido tenida en cuenta en la nómina."
+msgstr "Seleccione esta casilla cuando la ausencia haya sido tenida en cuenta en la liquidación."
 
 #. module: hr_holidays
 #: model:ir.ui.view,arch_db:hr_holidays.view_hr_holidays_filter
@@ -4692,18 +4692,18 @@ msgstr "Vacaciones disponibles"
 #: model:ir.model.fields,field_description:hr_holidays.field_hr_employee_remaining_leaves
 #: model:ir.ui.view,arch_db:hr_holidays.hr_holidays_leaves_assign_tree_view
 msgid "Remaining Legal Leaves"
-msgstr "Ausencias permitidas restantes"
+msgstr "Vacaciones restantes"
 
 #. module: hr_holidays
 #: model:ir.model.fields,field_description:hr_holidays.field_hr_holidays_remaining_leaves_user_no_of_leaves
 #: model:ir.ui.view,arch_db:hr_holidays.view_employee_form_leave_inherit
 msgid "Remaining leaves"
-msgstr "Ausencias restantes"
+msgstr "Vacaciones restantes"
 
 #. module: hr_holidays
 #: model:ir.model.fields,field_description:hr_holidays.field_hr_holidays_payslip_status
 msgid "Reported in last payslips"
-msgstr "Reportadas en la última nómina"
+msgstr "Reportadas en la última liquidación"
 
 #. module: hr_holidays
 #: model:ir.ui.menu,name:hr_holidays.menu_hr_holidays_report
@@ -4882,7 +4882,7 @@ msgstr "Para ejecutar"
 #. module: hr_holidays
 #: model:ir.ui.view,arch_db:hr_holidays.view_hr_holidays_filter
 msgid "To Report in Payslip"
-msgstr "Para reportar en nómina"
+msgstr "Para reportar en liquidación"
 
 #. module: hr_holidays
 #: selection:hr.holidays,state:0
