@@ -11,10 +11,10 @@
 
         <!-- Indicadores Inputs -->
 
-        <record id="hr_indicadores_marzo_2017" model="hr.indicadores">
-            <field name="name">Marzo 2017</field>
-            <field name="uf">26392.09</field>
-            <field name="utm">46137</field>
+        <record id="hr_indicadores_mayo_2017" model="hr.indicadores">
+            <field name="name">Mayo 2017</field>
+            <field name="uf">26630.98</field>
+            <field name="utm">46647</field>
             <field name="asignacion_familiar_primer">277016</field>
             <field name="asignacion_familiar_segundo">404613</field>
             <field name="asignacion_familiar_tercer">631058</field>
@@ -30,7 +30,7 @@
             <field name="tope_imponible_ips">60</field>
             <field name="tope_imponible_salud">5.201</field>
             <field name="tope_imponible_seguro_cesantia">113.5</field>
-            <field name="uta">553644</field>
+            <field name="uta">559764</field>
             <field name="deposito_convenido">900</field>
             <field name="sueldo_minimo_otro">197082</field>
             <field name="contrato_plazo_fijo_empleador">2.40</field>
@@ -39,7 +39,7 @@
             <field name="contrato_plazo_indefinido_empleador_otro">0.8</field>
             <field name="tasa_afp_cuprum">11.48</field>
             <field name="tasa_afp_capital">11.44</field>
-            <field name="tasa_afp_provida">11.54</field>
+            <field name="tasa_afp_provida">11.45</field>
             <field name="tasa_afp_modelo">10.77</field>
             <field name="tasa_afp_planvital">10.41</field>
             <field name="tasa_afp_habitat">11.27</field>
@@ -51,7 +51,7 @@
             <field name="tasa_sis_modelo">1.41</field>
             <field name="tasa_independiente_cuprum">12.89</field>
             <field name="tasa_independiente_capital">12.85</field>
-            <field name="tasa_independiente_provida">12.95</field>
+            <field name="tasa_independiente_provida">12.86</field>
             <field name="tasa_independiente_planvital">11.82</field>
             <field name="tasa_independiente_habitat">12.68</field>
             <field name="tasa_independiente_modelo">12.18</field>
