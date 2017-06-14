@@ -26,32 +26,41 @@ Daniel Blanco''',
     'website': 'http://blancomartin.cl',
     'depends': ['hr_payroll'],
     'license': 'AGPL-3',
-    'version': '1.3.9',
+    'version': '10.0.2',
     'description': """
 Chilean Payroll Salary Rules.
-========================================
+============================
 
     -Configuration of hr_payroll for Chile localization.
     -All main contributions rules for Chile payslip.
     * New payslip report
     * Employee Contracts
     * Allow to configure Basic / Gross / Net Salary
+    * Attendance, Holidays and Sick Licence   
     * Employee PaySlip
     * Allowance / Deduction
-    * Previred Chilean Indicators
+    * Pention Chilean Indicators
     * Libro de Remuneraciones , ...
     Report
     """,
-    'active': False,
+    'active': True,
     'data': [
-        'views/report_hrsalarybymonth.xml',
-        'views/report_payslip.xml',
         'views/hr_indicadores_previsionales_view.xml',
         'views/hr_salary_rule_view.xml',
+        'views/hr_contract_view.xml',
         'views/hr_employee.xml',
+        'views/hr_payslip_view.xml',
+        'views/hr_afp_view.xml',
+        'views/hr_payslip_run_view.xml',
+        'views/hr_contribution_register_view.xml',
+        'views/report_payslip.xml',
+        'views/report_hrsalarybymonth.xml',
+        'views/hr_salary_books.xml',
         'data/l10n_cl_hr_payroll_data.xml',
     ],
     'demo': ['demo/l10n_cl_hr_payroll_demo.xml'],
-    'installable': True
+    'installable': True,
+    'application': False,
+    'auto_install': False
 }
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
+

@@ -158,7 +158,7 @@ group by r.name, p.date_to,emp.id''', (emp_id, cod_id, mes, ano,))
         cont = 0
 
         self.cr.execute(
-            '''select emp.id, emp.identification_id, emp.name_related, emp.middle_name, emp.last_name, emp.mothers_name
+            '''select emp.id, emp.identification_id, emp.firstname, emp.middle_name, emp.last_name, emp.mothers_name
 from hr_payslip as p left join hr_employee as emp on emp.id = p.employee_id
 left join hr_contract as r on r.id = p.contract_id
 where p.state = 'done'  and (to_char(date_to,'mm')=%s)
@@ -225,7 +225,7 @@ order by last_name''', (last_month, last_year,))
         cont = 0
 
         self.cr.execute(
-            '''select emp.id, emp.identification_id, emp.name_related, emp.middle_name, emp.last_name, emp.mothers_name
+            '''select emp.id, emp.identification_id, emp.firstname, emp.middle_name, emp.last_name, emp.mothers_name
 from hr_payslip as p left join hr_employee as emp on emp.id = p.employee_id
 left join hr_contract as r on r.id = p.contract_id
 where p.state = 'done'  and (to_char(date_to,'mm')=%s)

@@ -9,6 +9,8 @@
 	                <h2>Libro de Remuneraciones</h2>
 	                <p>
 	                    Fecha <u><span t-esc="formatLang(data['form']['end_date'], date=True)"/></u> 
+	                    
+
 	                </p>
                 </div>
                 <table class="table table-condensed">
