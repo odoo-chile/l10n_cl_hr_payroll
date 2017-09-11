@@ -26,7 +26,7 @@ Daniel Blanco''',
     'website': 'http://blancomartin.cl',
     'depends': ['hr_payroll'],
     'license': 'AGPL-3',
-    'version': '1.5.0.3',
+    'version': '1.5.0.4',
     'description': """
 Chilean Payroll Salary Rules.
 ============================

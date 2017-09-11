@@ -83,8 +83,8 @@ group by number_of_days''', (emp_id, mes, ano,))
 left join hr_payslip as p on pl.slip_id = p.id
 left join hr_employee as emp on emp.id = p.employee_id
 left join resource_resource as r on r.id = emp.resource_id
-where p.state = 'done' and (pl.code like %s) and (to_char(date_to,'mm')=%s)
-and (to_char(date_to,'yyyy')=%s)
+where p.state = 'done' and (pl.code like %s) and (to_char(p.date_to,'mm')=%s)
+and (to_char(p.date_to,'yyyy')=%s)
 group by r.name, p.date_to''', (cod_id, mes, ano,))
 
         max = self.cr.fetchone()
@@ -109,8 +109,8 @@ left join hr_payslip as p on pl.slip_id = p.id
 left join hr_employee as emp on emp.id = p.employee_id
 left join hr_contract as r on r.id = p.contract_id
 left join account_analytic_account as w on w.id = r.analytic_account_id
-where p.state = 'done' and (to_char(date_to,'mm')=%s)
-and (to_char(date_to,'yyyy')=%s)
+where p.state = 'done' and (to_char(p.date_to,'mm')=%s)
+and (to_char(p.date_to,'yyyy')=%s)
 group by w.name order by name''', (last_month, last_year,))
 
         id_data = self.cr.fetchall()
@@ -138,7 +138,7 @@ left join hr_payslip as p on pl.slip_id = p.id
 left join hr_employee as emp on emp.id = p.employee_id
 left join resource_resource as r on r.id = emp.resource_id
 where p.state = 'done' and p.employee_id = %s and (pl.code like %s)
-and (to_char(date_to,'mm')=%s) and (to_char(date_to,'yyyy')=%s)
+and (to_char(p.date_to,'mm')=%s) and (to_char(p.date_to,'yyyy')=%s)
 group by r.name, p.date_to,emp.id''', (emp_id, cod_id, mes, ano,))
 
         max = self.cr.fetchone()
@@ -161,8 +161,8 @@ group by r.name, p.date_to,emp.id''', (emp_id, cod_id, mes, ano,))
             '''select emp.id, emp.identification_id, emp.name_related, emp.middle_name, emp.last_name, emp.mothers_name
 from hr_payslip as p left join hr_employee as emp on emp.id = p.employee_id
 left join hr_contract as r on r.id = p.contract_id
-where p.state = 'done'  and (to_char(date_to,'mm')=%s)
-and (to_char(date_to,'yyyy')=%s)
+where p.state = 'done'  and (to_char(p.date_to,'mm')=%s)
+and (to_char(p.date_to,'yyyy')=%s)
 group by emp.id, emp.name_related, emp.middle_name, emp.last_name, emp.mothers_name, emp.identification_id
 order by last_name''', (last_month, last_year,))
 
@@ -228,8 +228,8 @@ order by last_name''', (last_month, last_year,))
             '''select emp.id, emp.identification_id, emp.name_related, emp.middle_name, emp.last_name, emp.mothers_name
 from hr_payslip as p left join hr_employee as emp on emp.id = p.employee_id
 left join hr_contract as r on r.id = p.contract_id
-where p.state = 'done'  and (to_char(date_to,'mm')=%s)
-and (to_char(date_to,'yyyy')=%s)
+where p.state = 'done'  and (to_char(p.date_to,'mm')=%s)
+and (to_char(p.date_to,'yyyy')=%s)
 group by emp.id, emp.name_related, emp.middle_name, emp.last_name, emp.mothers_name, emp.identification_id
 order by last_name''', (last_month, last_year))
 

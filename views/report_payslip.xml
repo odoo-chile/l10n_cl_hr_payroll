@@ -225,7 +225,7 @@
                     </tr>
                     <tr>
                       <th>SON</th>
-                      <th colspan="3"><t t-foreach="get_payslip_lines(o.line_ids)" t-as="p"><t t-if="('LIQ' == p.code)"><span t-esc="convert(p.amount,'Peso')"/></t></t></th>
+                      <th colspan="3"><t t-foreach="get_payslip_lines(o.line_ids)" t-as="p"><t t-if="('LIQ' == p.code) and (p.amount>0)"><span t-esc="convert(p.amount,'Peso')"/></t></t></th>
 
                     </tr>
                   </thead>

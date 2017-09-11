@@ -21,27 +21,25 @@
                     </group>
                 </field>
 
-<field name="marital" position="after">
-
+                <field name="marital" position="after">
                     <field name="couple_last_name" placeholder="Couple Last Name..."/>
-</field>
-
-
-<field name="name" position="attributes">
+                </field>
+                <field name="name" position="attributes">
                     <attribute name="placeholder">First Name...</attribute>
-</field>
-
-
-<field name="department_id" position="before">
+                </field>
+                <field name="department_id" position="before">
                     <field name="type_id" required="1"/>
-</field>
-
-
-                <field name="identification_id" position="replace">
-                    <field name="identification_id" required="1"/>
-                </field>    
+                </field>
+                <field name="identification_id" position="attributes">
+                    <attribute name="required">True</attribute>  
+                </field>
+                <field name="country_id" position="attributes">
+                    <attribute name="required">True</attribute>
+                </field>
+                <field name="gender" position="attributes">
+                    <attribute name="required">True</attribute>
+                </field>
             </field>
-
         </record>
 
 
