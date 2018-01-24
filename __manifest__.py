@@ -21,12 +21,16 @@
 {
     'name': 'Chilean Payroll',
     'category': 'Localization',
-    'author': u'''Blanco Martin & Asociados - Nelson Ramírez Sánchez,
-Daniel Blanco''',
-    'website': 'http://blancomartin.cl',
-    'depends': ['hr_payroll'],
+    'author': 'Konos, '
+              u'''Blanco Martin & Asociados''',
     'license': 'AGPL-3',
-    'version': '10.0.2',
+    'depends': ['hr_payroll'],
+    'contributors': [
+        "Nelson Ramirez <info@konos.cl>",
+        "Daniel Blanco Martn <daniel@blancomartin.com>",
+    ],
+    'license': 'AGPL-3',
+    'version': '10.0.3',
     'description': """
 Chilean Payroll Salary Rules.
 ============================
@@ -40,7 +44,9 @@ Chilean Payroll Salary Rules.
     * Employee PaySlip
     * Allowance / Deduction
     * Pention Chilean Indicators
-    * Libro de Remuneraciones , ...
+    * Libro de Remuneraciones 
+    * Previred Plain Text
+    , ...
     Report
     """,
     'active': True,
